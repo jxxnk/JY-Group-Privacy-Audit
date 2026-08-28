@@ -1,0 +1,52 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Editors and OS
+.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Raw/sensitive evidence: only sanitized examples are versioned
+evidence/before/*
+!evidence/before/.gitkeep
+evidence/after/*
+!evidence/after/.gitkeep
+*.pcap
+*.pcapng
+*.dump
+*.core
+
+# Virtual machines and large artifacts
+*.vmdk
+*.vdi
+*.ova
+*.ovf
+*.iso
+*.qcow2
+*.zip
+*.7z
+
+# Generated reports (selected final artifacts may be force-added after review)
+reports/generated/
+*.tmp
+*.log
