@@ -1,0 +1,16 @@
+﻿ticket_key,customer_email,title,group,body
+T01,c01@customers.example.test,[T01] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C01 product inquiry. Related C01 reference: JY-C01-DELETE-MARKER-ALPHA.
+T02,c02@customers.example.test,[T02] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C02 product inquiry.
+T03,c03@customers.example.test,[T03] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C03 product inquiry.
+T04,c04@customers.example.test,[T04] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C04 product inquiry.
+T05,c05@customers.example.test,[T05] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C05 product inquiry.
+T06,c06@customers.example.test,[T06] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C06 product inquiry.
+T07,c07@customers.example.test,[T07] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C07 product inquiry.
+T08,c08@customers.example.test,[T08] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C08 product inquiry.
+T09,c09@customers.example.test,[T09] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C09 product inquiry.
+T10,c10@customers.example.test,[T10] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C10 product inquiry.
+T11,c01@customers.example.test,[T11] JY synthetic inquiry,JY-Restricted,SYNTHETIC ONLY. C01 product inquiry. Related C01 reference: JY-C01-DELETE-MARKER-ALPHA.
+T12,c02@customers.example.test,[T12] JY synthetic inquiry,JY-Restricted,SYNTHETIC ONLY. C02 product inquiry. Related C01 reference: JY-C01-DELETE-MARKER-ALPHA.
+T13,c03@customers.example.test,[T13] JY synthetic inquiry,JY-Restricted,SYNTHETIC ONLY. C03 product inquiry.
+T14,c04@customers.example.test,[T14] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C04 product inquiry.
+T15,c10@customers.example.test,[T15] JY synthetic inquiry,JY-General,SYNTHETIC ONLY. C10 product inquiry.
