@@ -1,0 +1,7 @@
+﻿staff_id,email,end_date
+S01,admin@jy.example.test,
+S02,privacy@jy.example.test,
+S03,lead@service.example.test,
+S04,agent@service.example.test,
+S05,former@service.example.test,2026-09-14
+S06,maint@vendor.example.test,

@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   python-quality:
@@ -21,6 +22,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-dev.txt
 
       - name: Install development dependencies
         run: python -m pip install -r requirements-dev.txt
@@ -32,7 +34,9 @@ jobs:
         run: ruff format --check collector
 
       - name: Test
-        run: pytest
+        run: python -m pytest
+        env:
+          PYTHONPATH: .
 
   secret-scan:
     runs-on: ubuntu-latest

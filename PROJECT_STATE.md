@@ -1,90 +1,89 @@
-# 프로젝트 현재 상태
+# PROJECT_STATE
 
-## 상태 기준일
+프로젝트명: JY그룹 개인정보 보호 컨설팅 실습 (단일 Zammad)
+가이드: JY-Group-Privacy-Audit-Execution-Guide / 작성 기준일 2026-09-09 / 실행 중심 개정판
+상태 갱신일: 2026-10-06
+수행자: 김준영 (고객 역할과 컨설턴트 역할을 겸함. 실제 고객 인터뷰가 아님)
+현재 브랜치: feat/linux-evidence-collector
+GitHub: https://github.com/jxxnk/JY-Group-Privacy-Audit.git
+마지막 커밋: (로컬에서 `git log -1 --oneline` 값으로 교체)
+Zammad 런타임: C:\JY-Lab\zammad-runtime
+Zammad compose 커밋: (C:\JY-Lab\zammad-runtime에서 `git rev-parse HEAD` 값으로 교체)
+접속: http://127.0.0.1:8080 (한국어 UI)
+원본 증적: C:\JY-Lab\private-evidence\ (Git 제외)
+참고 PDF: C:\JY-Lab\reference\ (가이드 원문)
 
-2026-08-28
+## 완료한 단계
 
-## 현재 단계
+- 2~4장: Windows·Docker·공식 zammad-docker-compose, localhost:8080. `down -v` 사용 안 함.
+- 5~6장: 직원 S01~S06, 고객 C01~C10, 그룹 JY-General/JY-Restricted, 조직 JY-Lab-Customers(초기 Shared Yes). 합성 티켓·첨부. 일부 티켓은 재생성되어 T01/T11/T12/T15가 두 벌임.
+- 7장: docs/client-before 6종, scope.md.txt, interview.md.txt, data-flow.pdf.
+- 8장: docs/sources.csv, docs/control-notes.md. Controls 항·호는 원문 추가 전.
+- 9장: reports/JY-Audit-Workbook.xlsx 11시트. Checks 24행 판정 완료(미실시 없음).
+- 10장: tools/jy_evidence.py collect → users-before.json, users-after-f01.json. 단위테스트 수행. **diff(users-diff.json)는 아직 없음.**
+- 11장 F-01: S05 종료 후 활성·T02 열람 → Active=false, 새 로그인 차단. 증적 E-F01-B01, E-F01-A01. Sessions 기존 세션 종료는 미확인.
+- 12장 F-02: S04·S06 T11 과다권한, C02가 T01 열람 → S04 General만, S06 그룹 없음, Shared No. 재점검 적합(R-02a/b).
+- 13장 F-03 13.1~13.3: C01 자료 보안 미리보기 T01·T11 4건, 조직 미삭제, 완료 후 C01/T01/T11 없음, T12 마커 잔존, T15 보존. **13.4 T16·Scheduler T12 삭제는 미실행(예정).**
+- GitHub feat/linux-evidence-collector에 엑셀·문서·명부·헬퍼 푸시. 원본 PNG/JSON은 비공개 폴더만.
 
-`기획 및 저장소 기본구조 확정 완료 / 실제 조사 착수 전`
+## 실제 생성 수 (관측)
 
-## 완료된 작업
+- 직원 6, 고객 삭제 전 10(C01 삭제 후 고객 9 예상)
+- 티켓: 원본 15 + 재생성분. C01 소유 T01·T11은 자료 보안으로 삭제됨.
+- 핵심 ID: T02 id=3 #52003; T11 시험 id=29 #52028; T12 id=14 #52014; T15 id=17 #52017
+- 복제(참고): T01 18/52018, T11 13/52013, T12 30/52029, T15 33/52032
 
-- 프로젝트 명칭을 `JY Group Privacy Audit`으로 확정했습니다.
-- HD현대그룹 사고에서 출발한 프로젝트 서사를 README에 기록했습니다.
-- 가상 조직을 JY홀딩스, JY산업, JY서비스와 외부 고객센터로 설계했습니다.
-- 100시간 수행계획과 단계별 산출물을 정했습니다.
-- 개인정보 보호법·ISMS-P·ISO/IEC 27701·주통기 가이드의 역할을 구분했습니다.
-- 증적 자동수집과 사람의 최종판단을 분리했습니다.
-- 최소비용 도구 구성과 Microsoft 365 활용방식을 확정했습니다.
-- Git 브랜치, Issue, PR, 태그와 Release 흐름을 확정했습니다.
-- GitHub Issue/PR 템플릿과 품질검사 골격을 만들었습니다.
-- 향후 GPT가 따라야 할 작업지침을 작성했습니다.
-- Windows와 Bash용 기본 환경 설정 스크립트를 준비했습니다.
+## Checks 요약 (덮어쓰지 말 것)
 
-## 아직 시작하지 않은 작업
+적합: A01 A02 A03 A04 B01 C01 E02 F01
+미흡: B02 B03 C02 C03 C04 D01 D02 D04 E01 E03 F02 F04
+미확인: B04 D03 E04
+적용 제외: F03 (외부 AI 미연결, 공격시험 안 함)
 
-- 실제 GitHub Private 저장소 생성 및 remote 연결
-- `plan/incident-analysis` 브랜치의 공식 사건·정책 조사
-- 가상 JY그룹 개인정보 처리현황과 자산대장 작성
-- 데이터 흐름도 및 그룹사 시스템 연결도 작성
-- 통합 통제 매트릭스 작성
-- VMware/Docker 가상 랩 구축
-- Linux·네트워크 증적수집기 구현
-- 위험평가, 개선, 재점검 및 최종 보고
+## 최근 증적ID
 
-## 다음 권장 작업
+E-F01-B01, E-F01-A01, JSON-F01-B, JSON-F01-A
+E-F02-B01~B03, E-F02-A01, E-F02-A01b, E-F02-A02, E-F02-A03
+E-F03-B01~B03, E-F03-A01, E-F03-A02
+SHA256은 Workbook Evidence 시트에 기입함. ENV-01/02 해시는 미기입.
 
-### Issue #1
+## 열려 있는 발견사항
 
-제목: `HD현대그룹 사고 및 개인정보 정책동향 분석`
+- F-01: 조치 완료, 재점검 적합. 기존 세션 회수·외부 토큰 미확인.
+- F-02a/b: 조치 완료, 재점검 적합. 다운로드 사본은 권한 회수로 안 지워짐.
+- F-03: 계정·본인티켓 삭제 적합(E02). T12 참조·사본 잔존 미흡(E03). A-03 예정.
 
-브랜치: `plan/incident-analysis`
+## 미완료 단계 (가이드 순서)
 
-예상시간: 8시간
+1. 10.4 `jy_evidence.py diff` → users-diff.json
+2. F-01 기존 세션 vs 새 로그인 구분 기록 (Sessions 없으면 미확인 유지)
+3. D03: T12 jy-doc02.txt 로컬 사본 존재 확인
+4. tickets.csv에 actual_id / actual_number
+5. 14장 위험평가·이행계획·변경요청서·예외대장
+6. 15장 처리방침 개선본·위탁 점검표·교육 1장·중장기 계획
+7. 16장 사고 도상훈련·모의 통지문·AI 검토서(연결 없음)
+8. 17장 모의심사 6항목·보완조치 내역서·미확인 목록
+9. 18장 Word 최종보고서 PDF, PPT 7장, README, Issue/PR, Gitleaks, (선택) 태그
+10. docs/environment.md, DECISION_LOG.md, START_HERE_NEW_CHAT.md
+11. Controls 법령 항·호는 원문 확인 후에만
 
-필수 산출물:
+## 차단 오류
 
-- 개인정보보호위원회 공식자료 기반 사건 요약
-- 최초 침입에서 계열사 확산까지의 타임라인
-- 취약점, 불필요한 연결, 계정·권한, 탐지와 거버넌스 원인 구분
-- 개인정보 보호법 주요 쟁점
-- 2026년 이후 정책·인증 방향
-- JY그룹에 반영할 설계 요구사항
-- 출처대장과 조사 기준일
+없음. Zammad는 자료 보안 작업 completed. 검색(Elasticsearch)은 비어 있을 수 있어 URL zoom으로만 확인.
 
-완료조건:
+## 다음 세 가지 행동
 
-- 공식출처를 우선합니다.
-- 공개되지 않은 사실을 추정하지 않습니다.
-- 확인된 사실, 해석과 프로젝트 제안을 구분합니다.
-- 변할 수 있는 주장에는 확인일을 기록합니다.
+1. 이 파일을 저장하고 feat/linux-evidence-collector에 커밋·푸시한다.
+2. 10.4 diff를 실행해 users-diff.json을 private-evidence/after에만 둔다 (Git 금지).
+3. 14장 위험점수와 변경요청서 초안을 작성한다.
 
-## 현재 고정 결정
+## 금지사항
 
-- 필수 신규비용은 0원을 목표로 합니다.
-- Microsoft 365는 기존 환경을 활용합니다.
-- 개발은 VS Code와 GitHub를 중심으로 진행합니다.
-- 작업 중 저장소는 Private로 유지합니다.
-- 핵심 기준은 개인정보 보호법과 ISMS-P입니다.
-- ISO/IEC 27701은 공개정보 및 합법적 열람 범위에서 참고합니다.
-- 주통기 가이드는 기술점검에만 사용합니다.
-- 합성 데이터만 사용합니다.
-- 수집기는 공식 적합성 판정을 하지 않습니다.
-- `main`과 `develop` 직접 push를 하지 않습니다.
-
-## 상태 갱신 규칙
-
-각 PR을 병합한 뒤 이 파일의 기준일, 현재 단계, 완료된 작업, 미완료 작업과 다음 권장 작업을 갱신합니다. 새로운 채팅을 시작할 때 이 파일이 가장 최신의 진행상태를 설명해야 합니다.
-
-## 새 담당자 또는 GPT 확인문
-
-작업자는 다음 질문에 답한 뒤 시작합니다.
-
-1. 지금 프로젝트는 어느 단계인가?
-2. 이번 작업에서 사용할 Issue와 브랜치는 무엇인가?
-3. 변경할 수 있는 파일과 변경하면 안 되는 파일은 무엇인가?
-4. 적용할 기준의 역할은 어떻게 구분되는가?
-5. 어떤 검증을 통과해야 완료되는가?
-
-답을 찾지 못하면 추정해서 진행하지 말고 README와 관련 기준문서를 다시 확인합니다.
+- docker compose down -v
+- 원본 증적·토큰·.env를 GitHub에 올리기
+- T12를 Scheduler 미리보기 1건 없이 삭제
+- T15·조직 JY-Lab-Customers 삭제
+- Checks 초기 미흡을 재점검 성공만으로 적합으로 덮기
+- 확인하지 않은 백업 복구·물리보안·웹 취약점 전체를 완료로 표시
+- 실제 사고 신고, 실제 메일 발송, 외부 AI에 상담문 전송
+- 가이드 PDF를 결과보고서인 것처럼 제출
