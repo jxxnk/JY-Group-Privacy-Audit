@@ -34,7 +34,9 @@ jobs:
         run: ruff format --check collector
 
       - name: Test
-        run: pytest
+        run: pytest --import-mode=importlib
+        env:
+          PYTHONPATH: .
 
   secret-scan:
     runs-on: ubuntu-latest
