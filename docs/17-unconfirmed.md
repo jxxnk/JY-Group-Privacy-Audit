@@ -17,11 +17,9 @@
 | F-01 Sessions | C02 `미흡` | 기존 세션 강제 종료 (EX-02) |
 | 감사로그·계정 복원 | C02 | 재점검 한계 |
 | 백업 사본 | C03·C04·E03 | E04와 동일 |
-| ENV-01, ENV-02 SHA256 | F01 `적합` | Evidence H열 공란. 로컬 해시 후 기입 |
-| JSON-F01-DIFF SHA256 | F01 | 로컬 Get-FileHash |
-| E-D03-A01 SHA256 | D03 `미흡` | 로컬 Get-FileHash |
+| ENV-01, ENV-02, ENV-01b, DF-01 SHA256 | F01 `적합` | Evidence H열 공란. 환경 증적은 미기입 유지 |
 | tickets.csv T03~T10, T13, T14 | B01 | actual_id 공란. 추측 금지 |
-| Controls 항·호 | A02 | 원문 확인 전 |
+| 고시 2026-9호 제4조 등 | Controls | 법률·시행령 항·호는 기입함. 고시 본문은 미기입 |
 
 ## 적용 제외 (미확인이 아님)
 
