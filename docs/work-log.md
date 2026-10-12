@@ -24,4 +24,10 @@
 - 워크북 날짜: S-L04 공포발표일을 2026-04-23으로, S-L05 공포발표일을 2023-11-23으로 sources.csv와 맞춤.
 - 이번 기록: S-L01부터 S-L07의 문서유형과 개정판을 sources.csv와 워크북 Sources에 같은 값으로 채움. S-L02 개정판은 대통령령 제36671호. 점검 판정은 바꾸지 않음.
 - 현재 브랜치: docs/closeout-controls
-- 남은 작업: 4단계 출처 정리는 여기까지. 다음 가이드 항목은 이 커밋 다음에 확인.
+
+## 2026-10-12 5단계
+
+- 이번 기록: private-evidence 21개 파일의 SHA256을 docs/evidence-hashes.md에 기록함. 원본 PNG·JSON·jy-doc02-copy.txt는 Git에 넣지 않음.
+- 대조: users-before.json과 users-after-f01.json은 기존 .sha256 파일과 값이 같음. users-diff.json은 수집기에 diff 명령이 없어 옆자리 해시 파일이 없음.
+- 현재 브랜치: docs/closeout-controls
+- 남은 작업: 재점검 범위 문구
