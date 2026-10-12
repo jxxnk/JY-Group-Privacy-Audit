@@ -29,5 +29,6 @@
 
 - 이번 기록: private-evidence 21개 파일의 SHA256을 docs/evidence-hashes.md에 기록함. 원본 PNG·JSON·jy-doc02-copy.txt는 Git에 넣지 않음.
 - 대조: users-before.json과 users-after-f01.json은 기존 .sha256 파일과 값이 같음. users-diff.json은 수집기에 diff 명령이 없어 옆자리 해시 파일이 없음.
+- 이번 기록: 2026-10-06 재점검 범위를 docs/retest-scope.md에 적음. R-01·R-02a·R-02b는 적합이고 E02는 T01·T11 삭제 범위만 적합이다. R-03·T12·사본·백업은 재점검 완료가 아니다. Checks 판정은 바꾸지 않음.
 - 현재 브랜치: docs/closeout-controls
-- 남은 작업: 재점검 범위 문구
+- 남은 작업: 티켓 목록
