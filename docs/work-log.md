@@ -34,3 +34,17 @@
 - 이번 기록: 위험·조치·운영 상태를 docs/operations-status.md에 적음. F-01은 6, F-02a·F-02b는 9, F-03 잔여는 9. CR-01~03은 완료, CR-04와 A-03은 예정. EX-01~EX-09는 유효. 로컬 사본은 해시만 기록하고 파기하지 않음.
 - 현재 브랜치: docs/closeout-controls
 - 남은 작업: 수집기 부록
+
+## 2026-10-12 9단계
+
+- 이번 기록: 수집기 부록을 `docs/collector-appendix.md`에 적음. 실습 JSON을 만든 도구는 `tools/jy_evidence.py`이며 명령은 `collect`와 `hash`다. `diff` 명령은 없다. `collector/`는 0.0.0 골격이다. 오늘 수집기와 테스트를 다시 실행하지 않았고 Checks 판정은 바꾸지 않음.
+- 현재 브랜치: fix/evidence-validation
+- 남은 작업: CI 확장
+
+## 2026-10-12 10단계
+
+- 이번 기록: `collector/tests/test_evidence_register.py`를 추가함. 공개 해시 목록 21개, 실습 JSON 경로, 토큰 문자열이 없는지를 확인한다. 비공개 증적과 Zammad는 열지 않음.
+- 로컬 검사: `.venv`의 Python 3.13.14, pytest 8.4.2로 `collector/tests`와 `tools/test_jy_evidence.py`를 실행해 12 passed.
+- CI: `.github/workflows/quality.yml`의 테스트 단계가 같은 두 경로를 실행하도록 바꿈. GitHub Actions 결과는 이 브랜치의 풀 리퀘스트에서 확인한다.
+- 현재 브랜치: fix/evidence-validation
+- 남은 작업: 이 브랜치의 풀 리퀘스트

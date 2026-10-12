@@ -33,8 +33,8 @@ jobs:
       - name: Check formatting
         run: ruff format --check collector
 
-      - name: Test
-        run: python -m pytest
+      - name: Test lab evidence tool and hash register
+        run: python -m pytest collector/tests tools/test_jy_evidence.py
         env:
           PYTHONPATH: .
 
