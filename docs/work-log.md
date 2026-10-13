@@ -60,3 +60,15 @@
 - 이번 기록: 보고서·발표자료 상태를 `docs/report-pack-status.md`에 적음. 원고는 `docs/18-final-report.md`(JY-FINAL-2026-10)와 `docs/18-slides.md`다. `reports/`에 docx, pdf, pptx, 워크북이 있다. `reports/final/`은 `.gitkeep`만 있다. 오늘 파일을 다시 만들거나 열지 않았고 Checks 판정은 바꾸지 않음.
 - 현재 브랜치: docs/closeout-deliverables
 - 남은 작업: 이 브랜치의 풀 리퀘스트
+
+## 2026-10-13 13단계
+
+- 이번 기록: 인수인계 상태를 `docs/handover-status.md`에 적음. 기준 커밋은 main `2b724e8`이다. START_HERE와 README의 2026-10-07 문장은 덮어쓰지 않음. `down -v`, T12·T15·조직 삭제, 원본 증적 커밋, Checks 판정 변경은 하지 않음.
+- 현재 브랜치: docs/closeout-handover
+- 남은 작업: 비밀 검사
+
+## 2026-10-13 14단계
+
+- 이번 기록: 비밀 검사를 `docs/secret-review.md`에 적음. `.env`와 `private-evidence`는 Git 추적 목록에 없다. `ZAMMAD_TOKEN=`, 개인 키 시작 문장, `ghp_`, `github_pat_`는 현재 추적 파일에서 찾지 못했다. 로컬 Gitleaks는 실행하지 않음. 풀 리퀘스트 #6의 secret-scan은 통과 기록만 인용함.
+- 현재 브랜치: docs/closeout-handover
+- 남은 작업: 이 브랜치의 풀 리퀘스트
