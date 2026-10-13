@@ -48,3 +48,15 @@
 - CI: `.github/workflows/quality.yml`의 테스트 단계가 같은 두 경로를 실행하도록 바꿈. GitHub Actions 결과는 이 브랜치의 풀 리퀘스트에서 확인한다.
 - 현재 브랜치: fix/evidence-validation
 - 남은 작업: 이 브랜치의 풀 리퀘스트
+
+## 2026-10-13 11단계
+
+- 이번 기록: 산출물 상태를 `docs/deliverable-status.md`에 적음. 사고 도상훈련 JY-INC-2026-01, 모의 통지문, AI 미연결, 처리방침 초안은 2026-10-07 문서 그대로다. B04·E04는 미확인이고 F02·B02는 미흡, F03은 적용 제외로 남긴다. 오늘 메일·재시험·게시는 하지 않음.
+- 현재 브랜치: docs/closeout-deliverables
+- 남은 작업: 보고서와 PPT
+
+## 2026-10-13 12단계
+
+- 이번 기록: 보고서·발표자료 상태를 `docs/report-pack-status.md`에 적음. 원고는 `docs/18-final-report.md`(JY-FINAL-2026-10)와 `docs/18-slides.md`다. `reports/`에 docx, pdf, pptx, 워크북이 있다. `reports/final/`은 `.gitkeep`만 있다. 오늘 파일을 다시 만들거나 열지 않았고 Checks 판정은 바꾸지 않음.
+- 현재 브랜치: docs/closeout-deliverables
+- 남은 작업: 이 브랜치의 풀 리퀘스트
