@@ -100,3 +100,12 @@
 - Controls D2:D4와 docs/check-control-mapping.csv를 채움. Checks 판정은 바꾸지 않음.
 - 현재 브랜치: docs/closeout-controls-02
 - 다음: 증적 해시. 커밋 번호는 커밋 뒤에 적음.
+
+## 2026-10-14 5단계 해시
+
+- 4단계 커밋은 `271a9b6`. 푸시하지 않음.
+- users-before.json, users-after-f01.json, users-diff.json, jy-doc02-copy.txt, ENV-01-system-base.png, ENV-01-version.txt, ENV-02-local-port.txt는 2026-10-12 해시와 같음.
+- docs/data-flow.pdf SHA256은 d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f. 이전 목록에 없었음.
+- Evidence H2:H5를 보완 시점 계산으로 채움. 판정은 바꾸지 않음.
+- 현재 브랜치: docs/closeout-controls-02
+- 다음: 공개 가공본. 커밋 번호는 커밋 뒤에 적음.

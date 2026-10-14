@@ -31,3 +31,20 @@
 | ENV-02-local-port.txt | 0c0b19d3ee6090021b8cb62a1129825c6d7f04747df185c9d922fbafc1ac7314 |
 
 점검 판정은 바꾸지 않는다. 이 목록은 2026-10-12에 계산한 해시이며 재시험이 아니다.
+
+## 2026-10-14 재계산
+
+같은 파일을 다시 해시했다. 재시험은 아니다. 2026-10-12 목록과 같으면 그 값을 유지한다.
+
+| 경로 | SHA256 | 2026-10-12 목록 |
+| --- | --- | --- |
+| before\users-before.json | 733293c02e65f593dddab16b6ce7505bb7e843cd20a67042c7ce1b031f527338 | 같음 |
+| after\users-after-f01.json | 1ee5dd42af94a4a38eb62827df3b659aa84e88aeafa85334f5d618f8ffab0224 | 같음 |
+| after\users-diff.json | fb3a3d9489ea34b8592ba30c29235561ad6791b0c64211733a875dde32f67882 | 같음 |
+| after\jy-doc02-copy.txt | 6f0ba336b53f81fbf7da509798b8219f726c4e4b421e22772cf92a7514053c2b | 같음 |
+| ENV-01-system-base.png | faa8108fed50c17353c0080469ed989642bfd90eb35fb4745e53f1de1481edcb | 같음 |
+| ENV-01-version.txt | 7274bb1e848d671e25c2ca7fccae4dd74922a7df73a6a883c3eebd4f006b8b0c | 같음 |
+| ENV-02-local-port.txt | 0c0b19d3ee6090021b8cb62a1129825c6d7f04747df185c9d922fbafc1ac7314 | 같음 |
+| docs\data-flow.pdf | d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f | 이전 목록에 없음. 워크북 DF-01 H4를 이날 채움 |
+
+워크북 Evidence H2·H3·H5는 비어 있었고, 위 해시와 같다. H4는 이날의 첫 계산이다. 표시는 보완 시점 계산이다.
