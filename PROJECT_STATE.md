@@ -1,5 +1,7 @@
 # PROJECT_STATE
 
+상태 갱신일: 2026-10-14. 수행은 `C:\JY-Lab\JY-Group-Privacy-Audit`에서 이어가고 있다. 기준 커밋은 `main` `35b7b85`이고, 현재 결정은 ADR-015이다. 아래의 브랜치 이름과 남은 단계 목록은 2026-10-06에 적어 둔 메모다.
+
 프로젝트명: JY그룹 개인정보 보호 컨설팅 실습 (단일 Zammad)
 가이드: JY-Group-Privacy-Audit-Execution-Guide / 작성 기준일 2026-09-09 / 실행 중심 개정판
 상태 갱신일: 2026-10-06

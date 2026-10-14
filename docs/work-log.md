@@ -72,3 +72,13 @@
 - 이번 기록: 비밀 검사를 `docs/secret-review.md`에 적음. `.env`와 `private-evidence`는 Git 추적 목록에 없다. `ZAMMAD_TOKEN=`, 개인 키 시작 문장, `ghp_`, `github_pat_`는 현재 추적 파일에서 찾지 못했다. 로컬 Gitleaks는 실행하지 않음. 풀 리퀘스트 #6의 secret-scan은 통과 기록만 인용함.
 - 현재 브랜치: docs/closeout-handover
 - 남은 작업: 이 브랜치의 풀 리퀘스트
+
+## 2026-10-14 0~2단계
+
+- 기준 커밋: `35b7b85`. 태그 `v1.0-final`은 그대로 둠. `0962ab1`로 되돌리지 않음.
+- 현재 브랜치: `docs/closeout-baseline-02`. 원격 추적 브랜치는 아직 없음.
+- 보존: `C:\JY-Backup\2026-10-14`. 워크북, `users-before.json`, `users-after-f01.json`, `users-diff.json`, `jy-doc02-copy.txt` 해시는 MATCH. 사본의 파일 수와 열람 여부는 이 기록에 없음.
+- 공유: Drive 원본 폴더의 접근 제한은 하지 않음. 제출은 차단. 비밀값은 적지 않음.
+- 문서: 기존 9개 문서에 현재 기준 문장을 넣음. ADR-015는 `docs/DECISION_LOG.md`에 있음. 점검 판정은 바꾸지 않음.
+- 3단계: 오늘 Docker와 Zammad를 다시 보지 않음. 2026-10-08 버전을 오늘 관측으로 바꾸지 않음.
+- 다음: 보존 기록, 대조 기록, 요구대장을 새 파일로 저장한 뒤 `git status`와 `git diff --stat`을 확인한다. 커밋 번호는 커밋 뒤에 적는다.

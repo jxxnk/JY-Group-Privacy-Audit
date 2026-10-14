@@ -1,5 +1,7 @@
 # Git 브랜치 및 작업 흐름
 
+`develop`을 통합 브랜치로 둔 절차는 2026-08-28 계획이다. 2026-10-14부터는 ADR-015에 따라 `main`에서 분기하고 풀 리퀘스트로 `main`에 병합한다.
+
 ## 1. 목적
 
 이 프로젝트에서 Git은 단순 백업이 아니라 컨설팅 과정을 입증하는 증적이다. 모든 중요한 판단과 결과는 `Issue → Branch → Commit → Pull Request → Review → Merge → Tag/Release`로 이어져야 한다.
