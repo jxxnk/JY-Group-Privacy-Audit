@@ -1,5 +1,7 @@
 # Contributing
 
+2026-10-14의 흐름은 최신 `main`에서 작업 브랜치를 만들고 풀 리퀘스트로 `main`에 병합하는 것이다. 아래 2번의 `develop`은 2026-08-28 계획이다.
+
 이 프로젝트는 개인 포트폴리오지만 실제 컨설팅 프로젝트처럼 변경을 관리한다. 기여 전 `README.md`, `docs/AI_WORK_INSTRUCTIONS.md`, `docs/GIT_WORKFLOW.md`를 읽는다.
 
 ## 기본 흐름

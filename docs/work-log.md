@@ -72,3 +72,22 @@
 - 이번 기록: 비밀 검사를 `docs/secret-review.md`에 적음. `.env`와 `private-evidence`는 Git 추적 목록에 없다. `ZAMMAD_TOKEN=`, 개인 키 시작 문장, `ghp_`, `github_pat_`는 현재 추적 파일에서 찾지 못했다. 로컬 Gitleaks는 실행하지 않음. 풀 리퀘스트 #6의 secret-scan은 통과 기록만 인용함.
 - 현재 브랜치: docs/closeout-handover
 - 남은 작업: 이 브랜치의 풀 리퀘스트
+
+## 2026-10-14 0~2단계
+
+- 기준 커밋: `35b7b85`. 태그 `v1.0-final`은 그대로 둠. `0962ab1`로 되돌리지 않음.
+- 현재 브랜치: `docs/closeout-baseline-02`. 원격 추적 브랜치는 아직 없음.
+- 보존: `C:\JY-Backup\2026-10-14`. 워크북, `users-before.json`, `users-after-f01.json`, `users-diff.json`, `jy-doc02-copy.txt` 해시는 MATCH. 사본의 파일 수와 열람 여부는 이 기록에 없음.
+- 공유: Drive 원본 폴더의 접근 제한은 하지 않음. 제출은 차단. 비밀값은 적지 않음.
+- 문서: 기존 9개 문서에 현재 기준 문장을 넣음. ADR-015는 `docs/DECISION_LOG.md`에 있음. 점검 판정은 바꾸지 않음.
+- 3단계: 오늘 Docker와 Zammad를 다시 보지 않음. 2026-10-08 버전을 오늘 관측으로 바꾸지 않음.
+- 다음: 보존 기록, 대조 기록, 요구대장을 새 파일로 저장한 뒤 `git status`와 `git diff --stat`을 확인한다. 커밋 번호는 커밋 뒤에 적는다.
+
+## 2026-10-14 3단계
+
+- 검사: Git 2.54.0.windows.1, Python 3.13.14. Docker Desktop 4.90.0, Engine 29.7.2, Compose v5.5.1. 엔진이 꺼져 있을 때 첫 `docker version`은 실패했고, Desktop을 켠 뒤 성공했다.
+- Zammad: `C:\JY-Lab\zammad-runtime` 커밋 `27944f87`. 컨테이너는 4주 전 생성이고 관측 시 `Up 2 minutes`. nginx는 `127.0.0.1:8080`. 이미지는 `ghcr.io/zammad/zammad:7.1.3-0011`, ID `e65123a43ecc`.
+- 화면: `http://127.0.0.1:8080/#login` 로그인 화면은 열림. 버전 문자열은 없음. 2026-10-08 관리 영역 버전은 오늘 다시 열지 않음.
+- `tmp-set-group.rb`는 미추적. 실행하지 않았고 Git에 넣지 않음. `up`과 `down -v`는 하지 않음.
+- 현재 브랜치: `docs/closeout-baseline-02`
+- 다음: 이 관측을 커밋한 뒤 기준선 풀 리퀘스트를 연다.

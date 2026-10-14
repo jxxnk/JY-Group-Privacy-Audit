@@ -1,5 +1,7 @@
 # JY Group Privacy Audit
 
+이 문서는 2026년 8월에 정한 프로젝트의 설계 기록이다. 2026-10-14의 진행 상태는 `PROJECT_STATE.md`와 ADR-015에 있다.
+
 ## 가상 그룹사 개인정보 보호 관리체계 진단 및 ISMS-P 사전심사 프로젝트
 
 > 한 계열사의 취약점이 그룹 전체의 개인정보 사고로 번지지 않도록
@@ -408,10 +410,16 @@ ISO/IEC 27701 원문을 구매하지 않으면 전체 조항에 대한 공식 �
 - 발견에서 끝나지 않고 개선과 재점검까지 수행합니다.
 - CPO와 경영진에게 보고하는 책임성과 미래 제도 변화를 반영합니다.
 - Git 이력으로 프로젝트의 의도, 판단, 수정과 결과를 모두 추적할 수 있습니다.
+
 ## 18.2 제출 묶음 (Git에 넣는 것)
+
 - `reports/JY-Audit-Workbook.xlsx`
 - `docs/` (14~18장, sources, control-notes)
 - `tools/jy_evidence.py` (GET localhost만)
 - `samples/synthetic-data/jy/` (합성 명부·tickets.csv)
+
 Git에 넣지 않음: `C:\JY-Lab\private-evidence\`, `.env`, 토큰, PNG, `users-*.json`, `jy-doc02-copy.txt`.
+
 Gitleaks·GitHub Issue/PR·태그는 이후 조각입니다. 지금 `main`으로 머지하지 않습니다. 브랜치는 `feat/linux-evidence-collector`만 사용합니다.
+
+이 문단은 2026-10-07의 메모다. 그 뒤 풀 리퀘스트 #3부터 #7은 `main`에 병합되었고, 태그 `v1.0-final`이 있다. 회사에 낼 선별본은 ADR-015의 검수가 끝난 뒤에 만든다.

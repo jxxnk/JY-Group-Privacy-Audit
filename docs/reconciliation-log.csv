@@ -1,0 +1,7 @@
+오류ID,이전값,확인값,근거,수정파일,검증,상태,커밋또는PR
+R-DOC-01,README 18.2는 main 병합 보류와 feat/linux-evidence-collector만 사용한다고 적음,풀 리퀘스트 #3~#7이 main에 병합되고 태그 v1.0-final이 35b7b85에 있음,2026-10-14 로컬 태그 푸시와 git 로그,README.md,문서 문장만 고침. 커밋 전,작업중,
+R-DOC-02,START_HERE·GIT_WORKFLOW·AI 지침·통합계획·완료조건·CONTRIBUTING·PROJECT_STATE가 2026-08-28 또는 2026-10-07 절차를 현재 과제처럼 읽힘,그 절차는 해당 날짜의 기록이고 현재 기준은 ADR-015,2차 점검 가이드 0.2와 저장소 이력,CONTRIBUTING.md;PROJECT_STATE.md;README.md;START_HERE_NEW_CHAT.md;docs/AI_WORK_INSTRUCTIONS.md;docs/DELIVERABLES_AND_DOD.md;docs/GIT_WORKFLOW.md;docs/PROJECT_MASTER_PLAN.md;docs/START_HERE_NEW_CHAT.md,diff --stat 9 files changed 34 insertions 9 deletions,작업중,
+R-ADR-01,ADR-009와 ADR-P04는 main 병합과 태그를 나중 작업으로 둠,이후 main 병합과 v1.0-final이 생겼고 로컬 Gitleaks는 2026-10-13 기록대로 미실행,docs/DECISION_LOG.md의 ADR-009·ADR-P04 원문,docs/DECISION_LOG.md,ADR-015를 추가하고 옛 결정은 유지,작업중,
+R-TKT-01,2026-10-12 작업 기록은 T02=3/52003,F-01 전 화면의 T02는 #52020이고 #52003과 합치지 않음. #52020의 내부ID는 확인된 원본이 없어 미확인,2차 점검 가이드 7단계,,7단계 전. 티켓은 삭제하지 않음,대기,
+R-RISK-01,운영 상태 기록의 F-01=6과 F-02·F-03=9,ADR-015의 척도로 다시 적기 전의 값이며 최종 점수로 확정하지 않음,2차 점검 가이드 8단계와 ADR-015,,8단계 전. 초기 점수 3은 유지,대기,
+R-ACC-01,원본 Drive 폴더의 접근 제한이 2026-10-14에 끝나지 않음,백업 5개 파일 해시는 MATCH. 공유 화면은 오늘 다시 열지 않음,docs/access-review.md,docs/access-review.md,비밀값은 기록하지 않음. 제출은 차단,작업중,

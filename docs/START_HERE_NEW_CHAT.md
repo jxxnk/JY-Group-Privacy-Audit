@@ -2,7 +2,8 @@
 
 수행자: 김준영  
 저장소: `C:\JY-Lab\JY-Group-Privacy-Audit`  
-브랜치: `feat/linux-evidence-collector`  
+2026-10-07 작업 브랜치: `feat/linux-evidence-collector`  
+2026-10-14 작업 브랜치: `docs/closeout-baseline-02`  
 GitHub: `https://github.com/jxxnk/JY-Group-Privacy-Audit.git`
 
 이 파일을 새 채팅에 붙이거나 열어 달라고 하면 됩니다. F-01~F-03 시험을 다시 하지 마세요.
@@ -22,6 +23,8 @@ docker compose ps
 ```
 
 `http://127.0.0.1:8080` 주소창. AJ `admin@jy.example.test`. **down -v 금지.** T12 zoom/14, T15 zoom/17.
+
+아래 Git 명령은 2026-10-07에 `feat/linux-evidence-collector`로 올리던 방법이다. 2026-10-14의 작업 브랜치는 `docs/closeout-baseline-02`이고, 병합은 ADR-015에 따라 `main`으로 한다.
 
 ## Git (이 저장소만)
 

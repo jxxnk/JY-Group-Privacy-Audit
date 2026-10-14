@@ -1,0 +1,28 @@
+RequirementID,Category,ArtifactPaths,Verification,Status,CheckedAt,Reviewer,Reason
+B-01,필수보완,docs/access-review.md,백업 해시와 원본 폴더 접근 제한을 따로 확인,작업중,2026-10-14,김준영,백업 5개 파일 해시 MATCH. Drive 제한은 아직 안 함
+B-02,필수보완,docs/reconciliation-log.csv;docs/DECISION_LOG.md,대조 행과 ADR-015를 파일에서 확인,작업중,2026-10-14,김준영,9개 안내 문장과 ADR-015는 작업 폴더에 있음
+B-03,필수보완,tools/jy_evidence_v2.py;tools/test_jy_evidence_v2.py,20건 unittest와 파일 해시,대기,,,도구 파일을 저장소에 넣기 전
+B-04,필수보완,.github/workflows/quality.yml,tools 검사와 main CI,대기,,,CI 수정 전
+B-05,필수보완,reports/JY-Audit-Workbook.xlsx,Incident·FinalReview와 초기 24행 유지,대기,,,시트 추가 전
+B-06,필수보완,docs/sources.csv;docs/control-notes.md,24개 통제와 출처 연결,대기,,,4단계 전. 기존 판정은 유지
+B-07,필수보완,docs/evidence-hashes.md,해시·시각·공개 가공본,대기,,,5단계 전
+B-08,필수보완,docs/ticket-inventory.csv,화면 번호와 내부ID를 분리,대기,,,7단계 전. #52020 내부ID는 미확인
+B-09,필수보완,docs/retest-scope.md,재점검 범위와 미확인을 구분,대기,,,6단계 전. 미흡을 적합으로 바꾸지 않음
+B-10,필수보완,docs/14-risk-assessment.md,가능성·영향·곱·우선순위·기한,대기,,,8단계 전. 기존 점수 3은 초기값
+B-11,필수보완,docs/15-privacy-policy-after.md,보유 조건과 대외·내부 문안 분리,대기,,,11단계 전
+B-12,필수보완,docs/15-outsourcing-checklist.md;docs/15-training-one-pager.md,수탁 표본과 교육 1쪽,대기,,,11단계 전. 이수 완료로 쓰지 않음
+B-13,필수보완,docs/16-incident-tabletop.md;docs/16-mock-notification.md,사고 요건표와 모의 접수. 실제 발송 없음,대기,,,11단계 전
+B-14,필수보완,reports/JY-Final-Report.docx,방침·수탁·교육의 형식 파일,대기,,,형식 파일을 만들기 전
+B-15,필수보완,docs/18-final-report.md;docs/18-slides.md;reports/JY-Briefing.pptx,상세 보고와 7장 발표,대기,,,12단계 전
+B-16,필수보완,PROJECT_STATE.md;docs/START_HERE_NEW_CHAT.md;README.md,현재 안내가 옛 절차보다 앞에 있음,작업중,2026-10-14,김준영,안내 문장은 넣었고 인계 문서는 아직 없음
+B-17,필수보완,docs/secret-review.md,참조·Gitleaks·공개 목록,대기,,,로컬 Gitleaks 미실행
+B-18,필수보완,docs/delivery-files.txt,새 태그 ZIP의 해시와 다시 받기,대기,,,v1.0-final은 유지. 새 태그는 검수 후
+A-01,권장개선,docs/18-final-report.md,사건에서 실습을 고른 이유,대기,,,12·13단계
+A-02,권장개선,reports/JY-Final-Report.docx,결정과 자원 요약,대기,,,12단계
+A-03,권장개선,docs/14-risk-assessment.md,관측과 가정 구분,대기,,,8·12단계
+A-04,권장개선,docs/ticket-inventory.csv,캡처의 계정·번호·시점,대기,,,5~7단계. 소급 캡처는 만들지 않음
+A-05,권장개선,docs/DECISION_LOG.md,모의 승인과 자기검토 구분,작업중,2026-10-14,김준영,ADR-015에 구분만 적음. 실제 조직 승인은 없음
+A-06,권장개선,docs/environment.md,tmp-set-group.rb의 선택 한계,대기,,,3단계 관측 전
+A-07,권장개선,reports/JY-Audit-Workbook.xlsx,기존 직원 보존과 파일 열기,대기,,,오늘 워크북을 다시 열지 않음
+A-08,권장개선,tools/README.md,collector 골격과 tools 구현 구분,대기,,,9단계 전
+E04,인계가능통제,docs/17-unconfirmed.md,백업 미확인과 후속 조건,대기,,,미확인 유지. 적합으로 바꾸지 않음
