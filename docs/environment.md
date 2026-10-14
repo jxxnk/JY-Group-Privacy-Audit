@@ -1,7 +1,7 @@
 # 실습 환경
 
 작성일: 2026-10-07
-최종 관측일: 2026-10-08
+최종 관측일: 2026-10-14
 수행자: 김준영
 
 ## 경로
@@ -12,6 +12,7 @@
 | GitHub | `https://github.com/jxxnk/JY-Group-Privacy-Audit.git` |
 | 2026-10-07 기록 | `feat/linux-evidence-collector`에서 작성. 이 문장은 현재 작업 지시가 아님 |
 | 2026-10-08 확인 | `main`이 `origin/main`과 일치. 이 수정은 `docs/closeout-baseline`에서 수행 |
+| 2026-10-14 확인 | `docs/closeout-baseline-02`. 버전 숫자는 아래 2026-10-08 표와 같음 |
 | Zammad compose | `C:\JY-Lab\zammad-runtime` (공식 zammad-docker-compose) |
 | 증적 원본 | `C:\JY-Lab\private-evidence\` (Git 제외) |
 | 가이드 PDF | `C:\JY-Lab\reference\` |
@@ -24,24 +25,11 @@
 - 티켓 줌: 내부 id. 예: T12 → `http://127.0.0.1:8080/#ticket/zoom/14`
 - Ticket# 예: T02 `#52003`, T12 `#52014`. 번호로 줌하면 “찾을 수 없음”
 
-## Zammad 시작 (다음날)
-
-Docker Desktop Engine 실행 후:
-
-```powershell
-Set-Location C:\JY-Lab\zammad-runtime
-docker compose ps
-docker compose start
-docker compose ps
-```
-
-브라우저에서 `http://127.0.0.1:8080`이 열리는지 확인한다. 모든 컨테이너가 `healthy`로 표시될 때까지 기다릴 필요는 없다. **금지:** `docker compose down -v`
-
 ## 계정 (합성)
 
-S01 admin@jy.example.test · S02 privacy@jy.example.test · S03 lead@service.example.test  
-S04 agent@service.example.test · S05 former@service.example.test (종료 2026-09-14, Active=false)  
-S06 maint@vendor.example.test  
+S01 admin@jy.example.test · S02 privacy@jy.example.test · S03 lead@service.example.test
+S04 agent@service.example.test · S05 former@service.example.test (종료 2026-09-14, Active=false)
+S06 maint@vendor.example.test
 그룹: JY-General, JY-Restricted. 조직: JY-Lab-Customers (공유=아니오)
 
 ## 수집기
@@ -50,7 +38,7 @@ S06 maint@vendor.example.test
 
 ## 2026-10-08 보완 시점 관측
 
-아래 값은 2026-10-08에 직접 확인한 현재 상태다. 2026-10-06 실습 당시 버전을 소급해서 증명하지 않는다.
+아래 값은 2026-10-08에 직접 확인한 상태다. 2026-10-06 실습 당시 버전을 소급해서 증명하지 않는다. 2026-10-14에 다시 본 Git, Python, Docker, Compose, compose 커밋, Zammad 이미지 태그와 ID도 이 표와 같았다.
 
 | 항목 | 관측값 |
 | --- | --- |
@@ -72,4 +60,21 @@ S06 maint@vendor.example.test
 
 2026-10-08 실행 상태에서는 Memcached, PostgreSQL, Rails, Redis가 `healthy`였고 nginx는 포트가 연결된 `Up` 상태였다. 관리자 로그인과 관리 영역의 버전 화면을 확인했다. `zammad-runtime`에는 미추적 파일 `tmp-set-group.rb`가 있다. 이 파일은 감사 저장소에 포함하지 않는다.
 
-보존 파일 `ENV-01-version.txt`와 `ENV-02-local-port.txt`의 이미지 ID와 포트는 오늘 조회 결과와 같다. 두 파일에는 달력 날짜가 없고 상대 시간만 있으므로, 그 상대 시간을 특정 날짜로 바꾸지 않는다.
+보존 파일 `ENV-01-version.txt`와 `ENV-02-local-port.txt`의 이미지 ID와 포트는 2026-10-08 조회 결과와 같다. 두 파일에는 달력 날짜가 없고 상대 시간만 있으므로, 그 상대 시간을 특정 날짜로 바꾸지 않는다.
+
+## 2026-10-14 관측
+
+버전 숫자는 위 표에만 둔다. Docker Desktop을 켜기 전에는 엔진 파이프가 없어 `docker version`이 실패했다. 엔진이 준비된 뒤 다시 확인했다. `docker compose up`과 `docker compose down -v`는 실행하지 않았다.
+
+| 항목 | 관측값 |
+| --- | --- |
+| 엔진 첫 시도 | 파이프 없음. `docker version` 실패 |
+| 컨테이너 생성 | 4주 전 |
+| 관측 시 상태 | `Up 2 minutes` |
+| healthy | Memcached, PostgreSQL, Rails, Redis |
+| Up | nginx, backup, Elasticsearch, scheduler, websocket |
+| nginx 바인딩 | `127.0.0.1:8080->8080/tcp` |
+| 로그인 화면 | `http://127.0.0.1:8080/#login`에서 열림 |
+| 로그인 화면 버전 | 없음. 하단은 Powered by Zammad |
+| 관리 영역 버전 | `7.1.3-ed9434c4.docker`는 2026-10-08에만 확인 |
+| `tmp-set-group.rb` | 미추적. 이 날 실행하지 않음. 감사 저장소에 넣지 않음 |
