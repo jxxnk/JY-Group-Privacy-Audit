@@ -118,3 +118,11 @@
 - 원본 JSON과 비공개 화면은 Git에 넣지 않음. 판정은 바꾸지 않음.
 - 현재 브랜치: docs/closeout-controls-02
 - 다음: 직원ID·active 요약. 커밋 번호는 커밋 뒤에 적음.
+
+## 2026-10-15 계정 active 요약
+
+- 전후 JSON의 login과 active만 확인. 이메일은 공개 요약에 넣지 않음.
+- Accounts와 대조하면 변경은 S05뿐. true에서 false.
+- 파일: evidence/sanitized/users-active.csv
+- 현재 브랜치: docs/closeout-controls-02
+- 다음: 재점검 한계. 커밋 번호는 커밋 뒤에 적음.

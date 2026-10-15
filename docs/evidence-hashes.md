@@ -67,3 +67,7 @@
 | evidence/sanitized/E-F03-A02.png | 5b576280c64b3e30b77034cbe4a37e40ddbb166fbff2beaf33fde7dc3708a553 |
 
 식별 한계는 워크북 Evidence K열에 있다. 원본 PNG와 원본 JSON은 Git에 넣지 않는다.
+
+## 2026-10-15 계정 active 요약
+
+원본 users JSON은 공개하지 않는다. Accounts 시트의 이메일과 대조해 직원ID와 active만 evidence/sanitized/users-active.csv에 남겼다. S05만 true에서 false로 바뀌었다. SHA256은 5680e5263c36d398ead884fb6810be17781ce622346fcc62d40126c0ec72c783이다.
