@@ -48,3 +48,22 @@
 | docs\data-flow.pdf | d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f | 이전 목록에 없음. 워크북 DF-01 H4를 이날 채움 |
 
 워크북 Evidence H2·H3·H5는 비어 있었고, 위 해시와 같다. H4는 이날의 첫 계산이다. 표시는 보완 시점 계산이다.
+
+## 2026-10-15 공개 가공본
+
+10개 PNG를 evidence/sanitized에 복사했다. 화면을 열어 토큰·암호·실명이 없는지 봤다. 가릴 글자가 없어 가공본 SHA256은 원본과 같다. 글자를 덧그리지 않았다.
+
+| 파일 | SHA256 |
+| --- | --- |
+| evidence/sanitized/E-F01-B01.png | 11eca98be3060702da44a8db353f0f54a57defda2c15db308e3e1d54cb04957d |
+| evidence/sanitized/E-F01-A01.png | e0e8f4b36b38f969ba39bd63e96d07343d0886f253c5982f5560c648b3860a68 |
+| evidence/sanitized/E-F02-B01.png | bb5d1cb3c45c6bf486506fa5d6e539c02502bd080d5af54b8d7e3cd9509c932c |
+| evidence/sanitized/E-F02-A01.png | 820e8d35e734b01665b54b1f9f22e9809b25c1f1f24907c3a204bce2a4f72b9c |
+| evidence/sanitized/E-F02-A02.png | a1a72fac7d94227e05261979a13a2e1de81bf2b6800901b0492ad8ebadef8a79 |
+| evidence/sanitized/E-F02-B03.png | 24aa3ebeae227353e9de1e545987a30f133f1b814de7aa09f34037563644ac50 |
+| evidence/sanitized/E-F02-A03.png | 56f7e61008c2ed480a37a9499f4b2f20125bbe7dbd53e81ecbf5569b653fdd1c |
+| evidence/sanitized/E-F03-B01.png | dfbd99cd39f5b3f0b3068eec58eea47e1473413ddd72ab44f0fa6379aad8da2e |
+| evidence/sanitized/E-F03-A01.png | 0c878a3fbcdea9d5d7dd5ea3e1a3b3964e5040cfce49f4460f976eab10ecdd23 |
+| evidence/sanitized/E-F03-A02.png | 5b576280c64b3e30b77034cbe4a37e40ddbb166fbff2beaf33fde7dc3708a553 |
+
+식별 한계는 워크북 Evidence K열에 있다. 원본 PNG와 원본 JSON은 Git에 넣지 않는다.
