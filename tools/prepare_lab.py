@@ -1,14 +1,17 @@
-﻿"""Create synthetic files only; never contacts Zammad."""
+"""Create synthetic files only; never contacts Zammad."""
+
 import argparse
 import csv
 from datetime import date, timedelta
 from pathlib import Path
+
 
 def write_csv(path, rows):
     with path.open("x", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
+
 
 def prepare(out):
     out.mkdir(parents=True, exist_ok=False)
@@ -61,6 +64,7 @@ def prepare(out):
         text = "SYNTHETIC ONLY. " + (marker if i < 3 else "C10 KEEP CONTROL")
         (folder / f"jy-doc{i:02}.txt").write_text(text + "\n", encoding="utf-8")
     print("Created 6 staff, 10 customers, 15 ticket rows, 3 attachments.")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)

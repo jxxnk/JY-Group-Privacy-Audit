@@ -1,4 +1,5 @@
-﻿"""JY lab evidence collector — GET localhost Zammad users only."""
+"""JY lab evidence collector — GET localhost Zammad users only."""
+
 from __future__ import annotations
 
 import argparse
@@ -70,7 +71,12 @@ def validate_base_url(url: str) -> str:
 
 
 def canonical_json(payload: Any) -> bytes:
-    return json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2).encode("utf-8") + b"\n"
+    return (
+        json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2).encode(
+            "utf-8"
+        )
+        + b"\n"
+    )
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -84,12 +90,16 @@ def write_json_and_hash(out: Path, payload: Any) -> str:
     tmp = out.with_suffix(out.suffix + ".tmp")
     tmp.write_bytes(blob)
     tmp.replace(out)
-    out.with_suffix(out.suffix + ".sha256").write_text(f"{digest}  {out.name}\n", encoding="utf-8")
+    out.with_suffix(out.suffix + ".sha256").write_text(
+        f"{digest}  {out.name}\n", encoding="utf-8"
+    )
     return digest
 
 
 def token_from_env() -> str:
-    token = (os.environ.get("ZAMMAD_TOKEN") or os.environ.get("JY_ZAMMAD_TOKEN") or "").strip()
+    token = (
+        os.environ.get("ZAMMAD_TOKEN") or os.environ.get("JY_ZAMMAD_TOKEN") or ""
+    ).strip()
     if not token:
         die("환경 변수 ZAMMAD_TOKEN 이 없습니다. 값은 채팅·커밋·캡처에 넣지 마세요.")
     return token
@@ -116,16 +126,22 @@ def get_json(base_url: str, path: str, token: str) -> Any:
                 die(f"HTTP {resp.status}: {url}")
             return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
-        die(f"HTTP {exc.code} {exc.reason}: GET {USERS_PATH} 실패. 토큰 권한·API 토큰 접근을 확인하세요.")
+        die(
+            f"HTTP {exc.code} {exc.reason}: GET {USERS_PATH} 실패. 토큰 권한·API 토큰 접근을 확인하세요."
+        )
     except urllib.error.URLError as exc:
-        die(f"연결 실패: {exc.reason}. Docker Desktop과 Zammad(127.0.0.1:8080)를 확인하세요.")
+        die(
+            f"연결 실패: {exc.reason}. Docker Desktop과 Zammad(127.0.0.1:8080)를 확인하세요."
+        )
 
 
 def fetch_users(base_url: str, token: str, getter=get_json) -> list[dict[str, Any]]:
     page = 1
     found: list[dict[str, Any]] = []
     while True:
-        chunk = getter(base_url, f"{USERS_PATH}?expand=false&per_page=100&page={page}", token)
+        chunk = getter(
+            base_url, f"{USERS_PATH}?expand=false&per_page=100&page={page}", token
+        )
         if not isinstance(chunk, list):
             die("사용자 API 응답이 목록이 아닙니다.")
         found.extend(chunk)
@@ -137,7 +153,9 @@ def fetch_users(base_url: str, token: str, getter=get_json) -> list[dict[str, An
     return found
 
 
-def snapshot(roster: list[dict[str, str]], zammad_users: list[dict[str, Any]], base_url: str) -> dict[str, Any]:
+def snapshot(
+    roster: list[dict[str, str]], zammad_users: list[dict[str, Any]], base_url: str
+) -> dict[str, Any]:
     by_email = {}
     for user in zammad_users:
         email = str(user.get("email") or "").strip().lower()
@@ -175,7 +193,9 @@ def snapshot(roster: list[dict[str, str]], zammad_users: list[dict[str, Any]], b
 
 def cmd_collect(args: argparse.Namespace) -> int:
     roster = load_roster(Path(args.roster))
-    base_url = validate_base_url(os.environ.get("ZAMMAD_URL", DEFAULT_URL) if not args.url else args.url)
+    base_url = validate_base_url(
+        os.environ.get("ZAMMAD_URL", DEFAULT_URL) if not args.url else args.url
+    )
     token = token_from_env()
     users = fetch_users(base_url, token)
     payload = snapshot(roster, users, base_url)
@@ -185,7 +205,9 @@ def cmd_collect(args: argparse.Namespace) -> int:
     print(f"wrote {args.out}")
     print(f"sha256 {digest}")
     if missing:
-        print("명부에는 있으나 Zammad에서 못 찾음: " + ", ".join(missing), file=sys.stderr)
+        print(
+            "명부에는 있으나 Zammad에서 못 찾음: " + ", ".join(missing), file=sys.stderr
+        )
     if s05:
         print(f"S05 active={s05['active']} end_date={s05['end_date']}")
     return 0
@@ -201,9 +223,13 @@ def cmd_hash(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="JY local Zammad GET-only evidence collector")
+    parser = argparse.ArgumentParser(
+        description="JY local Zammad GET-only evidence collector"
+    )
     sub = parser.add_subparsers(dest="command", required=True)
-    collect = sub.add_parser("collect", help="명부와 사용자 Active 상태를 JSON+SHA256으로 저장")
+    collect = sub.add_parser(
+        "collect", help="명부와 사용자 Active 상태를 JSON+SHA256으로 저장"
+    )
     collect.add_argument("--roster", required=True)
     collect.add_argument("--out", required=True)
     collect.add_argument("--url", default=None)

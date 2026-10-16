@@ -1,4 +1,5 @@
-﻿"""Server-less tests for tools/jy_evidence.py."""
+"""Server-less tests for tools/jy_evidence.py."""
+
 from __future__ import annotations
 
 import json
@@ -21,8 +22,12 @@ def _roster(path: Path, extra: str = "") -> Path:
 
 class UrlAndRosterTests(unittest.TestCase):
     def test_accepts_loopback_http_8080(self) -> None:
-        self.assertEqual(jy.validate_base_url("http://127.0.0.1:8080"), "http://127.0.0.1:8080")
-        self.assertEqual(jy.validate_base_url("http://localhost:8080/"), "http://localhost:8080")
+        self.assertEqual(
+            jy.validate_base_url("http://127.0.0.1:8080"), "http://127.0.0.1:8080"
+        )
+        self.assertEqual(
+            jy.validate_base_url("http://localhost:8080/"), "http://localhost:8080"
+        )
 
     def test_rejects_remote_or_https(self) -> None:
         with self.assertRaises(jy.EvidenceError):
@@ -49,7 +54,11 @@ class UrlAndRosterTests(unittest.TestCase):
 class SnapshotAndHashTests(unittest.TestCase):
     def test_snapshot_marks_active_and_omits_token(self) -> None:
         roster = [
-            {"staff_id": "S05", "email": "former@service.example.test", "end_date": "2026-09-14"},
+            {
+                "staff_id": "S05",
+                "email": "former@service.example.test",
+                "end_date": "2026-09-14",
+            },
             {"staff_id": "S06", "email": "maint@vendor.example.test", "end_date": ""},
         ]
         users = [
@@ -72,7 +81,10 @@ class SnapshotAndHashTests(unittest.TestCase):
 
     def test_hash_is_stable(self) -> None:
         payload = {"b": 1, "a": True}
-        self.assertEqual(jy.sha256_bytes(jy.canonical_json(payload)), jy.sha256_bytes(jy.canonical_json({"a": True, "b": 1})))
+        self.assertEqual(
+            jy.sha256_bytes(jy.canonical_json(payload)),
+            jy.sha256_bytes(jy.canonical_json({"a": True, "b": 1})),
+        )
 
     def test_write_json_and_hash(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
