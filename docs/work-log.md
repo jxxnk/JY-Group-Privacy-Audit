@@ -182,3 +182,7 @@ jy_evidence_v2.py, test_jy_evidence_v2.py, jy_closeout.py, test_jy_closeout.py�
 ## 2026-10-16 10단계 도구 검사
 
 ruff를 0.12.12로 고정했다. 예전 도구 4개를 그 버전으로 포맷하고 list_zammad.py의 import를 나눴다. v2 파일은 그대로 뒀다. venv에서 v2 20건, closeout 10건, pytest 42건이 통과했다. 실제 토큰과 Zammad 수집은 하지 않았다. quality.yml은 collector와 tools를 함께 검사하도록 바꾼다.
+
+## 2026-10-16 11단계 사고 기록
+
+16장을 전체 다시 썼다. 2026-10-07의 JY-INC-2026-01 사실은 유지했다. T0부터 T+60은 목표시간으로 분리했다. 제34조 제1항만 시행 2026-09-11 조문 화면에서 옮겼다. 유출등 해당 여부와 신고 기한 숫자는 미확인이다. 발송과 신고는 없다. F02는 미흡이다.
