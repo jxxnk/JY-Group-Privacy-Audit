@@ -27,16 +27,20 @@ jobs:
       - name: Install development dependencies
         run: python -m pip install -r requirements-dev.txt
 
-      - name: Lint
-        run: ruff check collector
+      - name: Lint collector and tools
+        run: python -m ruff check collector tools
 
       - name: Check formatting
-        run: ruff format --check collector
+        run: python -m ruff format --check collector tools
 
-      - name: Test lab evidence tool and hash register
-        run: python -m pytest collector/tests tools/test_jy_evidence.py
-        env:
-          PYTHONPATH: .
+      - name: All pytest tests
+        run: python -m pytest -q
+
+      - name: Evidence v2 regression
+        run: python -m unittest discover -s tools -p test_jy_evidence_v2.py -v
+
+      - name: Selected release regression
+        run: python -m unittest discover -s tools -p test_jy_closeout.py -v
 
   secret-scan:
     runs-on: ubuntu-latest

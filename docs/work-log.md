@@ -178,3 +178,7 @@ PR #9의 python-quality가 실패했다. evidence-hashes.md의 2026-10-12 첫 �
 ## 2026-10-16 9단계 수집기 v2
 
 jy_evidence_v2.py, test_jy_evidence_v2.py, jy_closeout.py, test_jy_closeout.py를 tools에 넣었다. SHA256은 부록 E와 같다. py -3 unittest는 v2 20건 OK, closeout 10건 OK다. 두 --help도 정상이다. 실제 토큰과 Zammad 수집은 하지 않았다. jy_evidence.py와 list_zammad.py는 이력으로 남긴다. v2는 직원 6명의 active만 다룬다.
+
+## 2026-10-16 10단계 도구 검사
+
+ruff를 0.12.12로 고정했다. 예전 도구 4개를 그 버전으로 포맷하고 list_zammad.py의 import를 나눴다. v2 파일은 그대로 뒀다. venv에서 v2 20건, closeout 10건, pytest 42건이 통과했다. 실제 토큰과 Zammad 수집은 하지 않았다. quality.yml은 collector와 tools를 함께 검사하도록 바꾼다.
