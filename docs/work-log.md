@@ -174,3 +174,7 @@ ADR-016을 추가했다. 위험점수는 가능성 1–3 × 영향 1–3이고, 
 ## 2026-10-16 해시 개수 검사
 
 PR #9의 python-quality가 실패했다. evidence-hashes.md의 2026-10-12 첫 표는 21개다. 재계산 7개와 가공본 10개는 같은 해시의 반복이고, 새 값은 data-flow.pdf와 users-active.csv다. 출현은 40, 고유는 23이다. 해시 행은 그대로 둔다. 검사는 첫 표 21개를 세고, 2026-10-14 이후 새 해시는 이 둘만 허용한다. secret-scan은 통과했다. 병합은 이 검사 통과 뒤에 한다.
+
+## 2026-10-16 9단계 수집기 v2
+
+jy_evidence_v2.py, test_jy_evidence_v2.py, jy_closeout.py, test_jy_closeout.py를 tools에 넣었다. SHA256은 부록 E와 같다. py -3 unittest는 v2 20건 OK, closeout 10건 OK다. 두 --help도 정상이다. 실제 토큰과 Zammad 수집은 하지 않았다. jy_evidence.py와 list_zammad.py는 이력으로 남긴다. v2는 직원 6명의 active만 다룬다.
