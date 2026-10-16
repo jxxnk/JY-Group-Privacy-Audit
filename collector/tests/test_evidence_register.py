@@ -18,9 +18,16 @@ REQUIRED_PATHS = (
 
 def test_register_has_twenty_one_unique_hashes() -> None:
     text = REGISTER.read_text(encoding="utf-8")
-    hashes = re.findall(r"[0-9a-f]{64}", text)
-    assert len(hashes) == 21
-    assert len(set(hashes)) == 21
+    head, marker, tail = text.partition("## 2026-10-14 재계산")
+    assert marker
+    first = re.findall(r"[0-9a-f]{64}", head)
+    later = re.findall(r"[0-9a-f]{64}", tail)
+    assert len(first) == 21
+    assert len(set(first)) == 21
+    assert set(later) - set(first) == {
+        "d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f",
+        "5680e5263c36d398ead884fb6810be17781ce622346fcc62d40126c0ec72c783",
+    }
 
 
 def test_register_names_the_lab_json_outputs() -> None:
