@@ -236,3 +236,9 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 - Checks A02 관측결과와 한계에 법·시행령·고시·ISMS-P·ISO·KISA 범위를 구분했다.
 - 증적ID를 S-L01~S-L07로 바꿨다.
 - 판정 적합은 유지했다. 다른 점검 행과 판정 집계는 바꾸지 않았다.
+
+## 2026-10-19 권리 요청 모의 기록
+
+- `docs/15-rights-request-simulation.md`의 RR-01은 기존 모의 기록이다. 실제 이메일은 보내지 않았다.
+- `docs/17-remediation-log.md` 문서 보완 표에 이 기록을 추가했다.
+- Checks B04는 `미확인`으로 유지했다. 예정 표의 B04 `미실시`도 유지했다.
