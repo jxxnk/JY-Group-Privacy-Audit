@@ -230,3 +230,9 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 - D04, E01, E03, F02는 `미흡`, E04는 `미확인`으로 그대로다.
 - Incident 시트를 추가했다. INC-01 네 행이다.
 - 백업 `reports/JY-Audit-Workbook.before-final-remediation.xlsx`는 Git에 넣지 않는다.
+
+## 2026-10-19 Checks A02 출처 범위
+
+- Checks A02 관측결과와 한계에 법·시행령·고시·ISMS-P·ISO·KISA 범위를 구분했다.
+- 증적ID를 S-L01~S-L07로 바꿨다.
+- 판정 적합은 유지했다. 다른 점검 행과 판정 집계는 바꾸지 않았다.
