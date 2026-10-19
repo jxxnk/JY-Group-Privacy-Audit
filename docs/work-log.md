@@ -198,3 +198,7 @@ reports/policy에 Before, After, Tracked 문서와 After, Tracked PDF를 넣었�
 ## 2026-10-19 11단계 수탁 점검표
 
 reports/outsourcing/JY-Outsourcing-Checklist.xlsx를 넣었다. 시트는 문서정보, 수탁목록, 표본점검이다. V-01과 V-02의 계약, 권한, 파기, 교육을 채웠다. 계약 체결과 연간 감독 실적은 없다. D01은 미흡이다.
+
+## 2026-10-19 11단계 교육 1장
+
+reports/training/JY-Privacy-Training.docx와 JY-Privacy-Training.pdf를 넣었다. 원문은 docs/15-training-one-pager.md이다. 상담원, 유지보수, 관리자가 지킬 행동을 1쪽에 넣었다. 서명과 출석은 없다. D04는 미흡이다.
