@@ -202,3 +202,7 @@ reports/outsourcing/JY-Outsourcing-Checklist.xlsx를 넣었다. 시트는 문서
 ## 2026-10-19 11단계 교육 1장
 
 reports/training/JY-Privacy-Training.docx와 JY-Privacy-Training.pdf를 넣었다. 원문은 docs/15-training-one-pager.md이다. 상담원, 유지보수, 관리자가 지킬 행동을 1쪽에 넣었다. 서명과 출석은 없다. D04는 미흡이다.
+
+## 2026-10-19 13단계 발표 7장
+
+reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조로 고쳤다. 스크린샷은 없다. 7장 메모에 예상 질문 6개가 있다. PR, 태그, Release는 없다. Checks 미흡은 유지한다.
