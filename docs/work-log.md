@@ -242,3 +242,10 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 - `docs/15-rights-request-simulation.md`의 RR-01은 기존 모의 기록이다. 실제 이메일은 보내지 않았다.
 - `docs/17-remediation-log.md` 문서 보완 표에 이 기록을 추가했다.
 - Checks B04는 `미확인`으로 유지했다. 예정 표의 B04 `미실시`도 유지했다.
+
+## 2026-10-19 환경 버전
+
+- Windows 11 Home 25H2, OS 빌드 26200.9711과 WSL 2 상태를 기록했다.
+- Git, Python, Docker Engine, Compose, Zammad compose commit은 2026-10-08 표와 같았다.
+- Docker Desktop이 중지되어 이미지 이름은 오늘 다시 확인하지 못했다.
+- 메일 주소는 기록하지 않았다.
