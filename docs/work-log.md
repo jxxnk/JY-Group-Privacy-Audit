@@ -214,3 +214,12 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 ## 2026-10-19 비밀 검사
 
 수집기 테스트 38개는 통과했다. Gitleaks는 설치되어 있지 않아 실행하지 않았다. 토큰 값은 찾지 못했다. evidence/sanitized PNG 10개는 원래 추적 중인 정제 증적이다. 이번 단계의 PDF, DOCX, XLSX, PPTX를 직접 열었고 토큰, 암호, 원본 증적은 없었다.
+
+## 2026-10-19 list_zammad URL 제한
+
+- `tools/list_zammad.py`가 `http://127.0.0.1:8080`과 `http://localhost:8080`만 허용하도록 바꿨다.
+- 사용자 정보가 들어간 URL, 다른 포트, HTTPS, 쿼리, 프래그먼트는 거부한다.
+- 요청은 프록시를 쓰지 않고 리다이렉트를 따라가지 않는다.
+- `tools/test_list_zammad.py`를 추가했다.
+- `py -3 -m unittest discover -s tools -p "test_*.py" -v` 결과 42개 통과.
+- Zammad 조회 스크립트는 실행하지 않았다.
