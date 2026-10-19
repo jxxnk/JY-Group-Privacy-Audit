@@ -194,3 +194,7 @@ ruff를 0.12.12로 고정했다. 예전 도구 4개를 그 버전으로 포맷�
 ## 2026-10-19 11단계 처리방침
 
 reports/policy에 Before, After, Tracked 문서와 After, Tracked PDF를 넣었다. 원문 시점은 미기재이고 Word 변환일은 2026-10-19이다. After에는 티켓 번호와 로컬 경로를 넣지 않았다. Tracked에는 초기 문장 삭제, 새 문안 삽입, 메모 5개가 있다. B02 판정은 바꾸지 않았다.
+
+## 2026-10-19 11단계 수탁 점검표
+
+reports/outsourcing/JY-Outsourcing-Checklist.xlsx를 넣었다. 시트는 문서정보, 수탁목록, 표본점검이다. V-01과 V-02의 계약, 권한, 파기, 교육을 채웠다. 계약 체결과 연간 감독 실적은 없다. D01은 미흡이다.
