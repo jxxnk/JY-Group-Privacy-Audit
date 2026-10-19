@@ -18,7 +18,7 @@ Word/PDF가 필요하면 이 파일을 붙여 넣어 내보냅니다. 원본 증
 
 ## 2. 방법
 
-- 9장 워크북 11시트, Checks 24행.
+- 9장 워크북은 기본 11시트와 Incident 시트다. Checks 24행.
 - 10장 GET localhost 수집기. 명부 이메일 `.example.test`.
 - 11~13장 화면 시험 F-01·F-02·F-03. 재점검 R-01·R-02a·R-02b `적합`, R-03 `미흡`.
 - 14~17장 위험(1–3×1–3), 변경요청, 예외, 방침 초안, 도상훈련, 자기재검토.
@@ -53,7 +53,7 @@ B02 초기 방침, B03 위탁/제공 구분, D01 연간 수탁실적, D04 교육
 2. Evidence 공란 해시(ENV, JSON-F01-DIFF, E-D03-A01)는 로컬 Get-FileHash.
 3. 백업을 범위에 넣을 때만 E04 실측.
 4. Controls 항·호는 law.go.kr 원문 확인 후.
-5. `feat/linux-evidence-collector`에서 필요한 경우 나중에 PR. 지금 강제 머지하지 않음.
+5. 보완 작업 브랜치는 `docs/closeout-deliverables-02`이다. main `35b7b85`의 태그 `v1.0-final`은 옮기지 않는다. 이 브랜치는 아직 머지하지 않았고 강제 머지하지 않는다.
 
 ## 7. 첨부 (저장소)
 

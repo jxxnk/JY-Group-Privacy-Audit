@@ -2,7 +2,16 @@
 
 작성일: 2026-10-13
 기준 커밋: `main` `2b724e8` (Merge pull request #6)
-오늘 `docs/START_HERE_NEW_CHAT.md`와 `README.md`를 덮어쓰지 않았다. Checks 판정은 바꾸지 않는다.
+2026-10-13에는 `docs/START_HERE_NEW_CHAT.md`와 `README.md`를 덮어쓰지 않았다. Checks 판정은 바꾸지 않는다.
+
+## 2026-10-19 현재
+
+- 작업 브랜치: `docs/closeout-deliverables-02`
+- 이 문서를 고치기 전 마지막 푸시: `5c00b32`
+- main `35b7b85`에는 태그 `v1.0-final`이 있다. 이 보완 브랜치는 아직 머지하지 않았다.
+- 풀 리퀘스트 #3부터 #7은 `main`에 병합되어 있다.
+- `docs/START_HERE_NEW_CHAT.md`에 2026-10-19 상태를 추가했다.
+- `README.md`의 2026-10-07 제출 묶음 문단은 메모로 남아 있다. 그 문단은 다시 쓰지 않는다.
 
 ## 지금 이어서 볼 곳
 
@@ -18,8 +27,8 @@
 
 ## 옛 안내와 다른 점
 
-- `docs/START_HERE_NEW_CHAT.md`는 2026-10-07 기준이고 브랜치를 `feat/linux-evidence-collector`로 적는다. 그 문장은 당시 기록이다. 오늘 작업 기준 브랜치는 `main`이다.
-- `README.md` 끝의 제출 묶음은 Gitleaks, Issue, PR, 태그를 이후 조각으로 적고 `main` 머지를 하지 말라고 되어 있다. 그 뒤 풀 리퀘스트 #3부터 #6은 `main`에 병합되었다. 오늘 README 문장은 바꾸지 않는다.
+- `docs/START_HERE_NEW_CHAT.md`의 2026-10-07 절은 브랜치를 `feat/linux-evidence-collector`로 적는다. 그 문장은 당시 기록이다. 2026-10-13 작업 기준 브랜치는 `main`이었다.
+- `README.md` 끝의 제출 묶음은 Gitleaks, Issue, PR, 태그를 이후 조각으로 적고 `main` 머지를 하지 말라고 되어 있다. 2026-10-13에 확인한 범위에서는 풀 리퀘스트 #3부터 #6이 `main`에 병합되어 있었다. 그날 README 문장은 바꾸지 않았다.
 
 ## 다음 사람이 하지 말 것
 
