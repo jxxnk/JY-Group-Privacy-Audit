@@ -223,3 +223,10 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 - `tools/test_list_zammad.py`를 추가했다.
 - `py -3 -m unittest discover -s tools -p "test_*.py" -v` 결과 42개 통과.
 - Zammad 조회 스크립트는 실행하지 않았다.
+
+## 2026-10-19 Workbook E02와 Incident
+
+- Checks E02 증적ID는 `E-F03-B01`이다. 판정 `적합`과 관측 결과는 바꾸지 않았다.
+- D04, E01, E03, F02는 `미흡`, E04는 `미확인`으로 그대로다.
+- Incident 시트를 추가했다. INC-01 네 행이다.
+- 백업 `reports/JY-Audit-Workbook.before-final-remediation.xlsx`는 Git에 넣지 않는다.
