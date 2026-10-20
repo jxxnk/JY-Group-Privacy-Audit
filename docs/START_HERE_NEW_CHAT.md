@@ -11,7 +11,7 @@ GitHub: `https://github.com/jxxnk/JY-Group-Privacy-Audit.git`
 
 ## 지금 상태 (2026-10-19)
 
-작업 브랜치는 `docs/closeout-deliverables-02`이다. 이 문서를 고치기 전 마지막 푸시 커밋은 `5c00b32`이다. main `35b7b85`에는 태그 `v1.0-final`이 있고, 이 보완 브랜치는 아직 머지하지 않았다. 검수 뒤 태그는 ADR-015의 `v1.0-final.1`이다.
+작업 브랜치는 `docs/closeout-deliverables-02`이다. 로컬 최신 커밋은 `ae67b9c`이고 아직 푸시 전이다. origin/main은 `56696f3`이며 2026-10-16 풀 리퀘스트 #10이다. 이 보완 브랜치는 아직 머지하지 않았다. `v1.0-final.1`은 만들지 않았다.
 
 - 워크북은 기본 11시트와 Incident 시트다. 시트 탭에는 `FinalReview`도 있다.
 - Checks A02 증적ID는 `S-L01~S-L07`이다. 판정 `적합`은 유지했다.

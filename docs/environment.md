@@ -14,6 +14,7 @@
 | 2026-10-08 확인 | `main`이 `origin/main`과 일치. 이 수정은 `docs/closeout-baseline`에서 수행 |
 | 2026-10-14 확인 | `docs/closeout-baseline-02`. 버전 숫자는 아래 2026-10-08 표와 같음 |
 | 2026-10-19 확인 | `docs/closeout-deliverables-02`. 기준 commit `06d6ff5`. main 머지 전이며 최종 tag 없음 |
+| 2026-10-20 확인 | `docs/closeout-deliverables-02`. 로컬 커밋 `ae67b9c`. origin/main은 `56696f3`. 이 브랜치는 main 머지 전 |
 | Zammad compose | `C:\JY-Lab\zammad-runtime` (공식 zammad-docker-compose) |
 | 증적 원본 | `C:\JY-Lab\private-evidence\` (Git 제외) |
 | 가이드 PDF | `C:\JY-Lab\reference\` |
@@ -35,7 +36,7 @@ S06 maint@vendor.example.test
 
 ## 수집기
 
-`tools/jy_evidence.py`는 `127.0.0.1:8080` GET만 사용한다. 토큰은 화면에 한 번만 보이는 값이며 `.env`에 커밋하지 않는다. 이 도구에는 `diff` 서브커맨드가 없다. 전후 JSON 비교는 동일 staff.csv, 동일 Zammad 인스턴스, 동일 직원 ID를 기준으로 수동 검증했고, `users-diff.json`에는 S05 active True→False만 기록되어 있다. 그 파일은 `private-evidence/after`에만 둔다. 현재 저장소 도구에는 원 가이드 부록의 전체 diff 방어 기능이 없으므로 자동화 전체 구현 완료로 주장하지 않는다.
+`tools/jy_evidence.py`는 v1이다. `127.0.0.1:8080` GET만 사용한다. 토큰은 화면에 한 번만 보이는 값이며 `.env`에 커밋하지 않는다. 이 도구에는 `diff` 서브커맨드가 없다. 전후 JSON 비교는 동일 staff.csv, 동일 Zammad 인스턴스, 동일 직원 ID를 기준으로 수동 검증했고, `users-diff.json`에는 S05 active True→False만 기록되어 있다. 그 파일은 `private-evidence/after`에만 둔다. 현재 도구는 v2 `tools/jy_evidence_v2.py`의 collect, diff, verify다. v1에도 v2에도 원 가이드 부록의 전체 diff 방어 기능이 있다고 쓰지 않는다. 2026-10-20에 Zammad를 다시 켜서 수집하지는 않았다.
 
 ## 2026-10-08 보완 시점 관측
 
@@ -97,5 +98,5 @@ Windows 버전과 WSL 상태를 새로 확인했다. Git, Python, Docker Engine,
 | URL | `http://127.0.0.1:8080` |
 | UI 언어 | 한국어 |
 | 브랜치 | `docs/closeout-deliverables-02` |
-| 기준 commit | `06d6ff5`. main 머지 전 |
-| 최종 tag | 없음 |
+| 기준 commit | `06d6ff5`는 2026-10-19 기록. 현재 로컬 커밋은 `ae67b9c`. main 머지 전 |
+| 최종 tag | 2026-10-19 기록은 없음. 2026-10-20에도 `v1.0-final.1`은 만들지 않음 |
