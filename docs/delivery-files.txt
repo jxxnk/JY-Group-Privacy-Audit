@@ -116,7 +116,6 @@ samples/synthetic-data/README.md
 scripts/bootstrap.ps1
 scripts/bootstrap.sh
 START_HERE_NEW_CHAT.md
-tmp-delivery-list.py
 tools/build_briefing.py
 tools/build_final_report.py
 tools/build_outsourcing_checklist.py
