@@ -13,3 +13,13 @@
 - 풀 리퀘스트 #6의 GitHub `secret-scan`은 통과했다. 그 검사는 Gitleaks다. 오늘 그 명령을 로컬에서 다시 실행하지 않았다.
 
 Checks 판정은 바꾸지 않는다.
+
+## 2026-10-22 로컬 실행
+
+위 2026-10-13 절은 그날 추적 파일만 검색하고 로컬 Gitleaks는 실행하지 않은 기록이다. 2026-10-22 11:36 KST에 이 PC에서 같은 저장소를 Gitleaks로 읽었다. Checks 판정은 바꾸지 않는다.
+
+- 실행 파일은 `C:\JY-Lab\bin\gitleaks\gitleaks.exe`, 버전 8.28.0이다. ZIP SHA256은 `da6458e8864af553807de1c46a7a8eac0880bd6b99ba56288e87e86a45af884f`이다.
+- `gitleaks dir . --redact`는 작업 폴더 22.65MB를 5.16초 동안 읽었다. 결과는 no leaks found다.
+- `gitleaks git . --redact`는 이 PC 저장소의 79개 커밋, 546.62KB를 10.2초 동안 읽었다. 결과는 no leaks found다. 이 명령이 2026-10-13에 하지 않은 이력 읽기다.
+- `.gitignore`에 `private-evidence/`, `zammad-runtime/`, `backups/`를 넣었다. 같은 날 `git ls-files -- .env private-evidence zammad-runtime backups`는 파일을 출력하지 않았다.
+- Office를 다시 연 결과는 이 절에 없다.

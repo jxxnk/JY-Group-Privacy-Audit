@@ -1,0 +1,24 @@
+FromFile,ReferenceType,ReferenceID,TargetFile,TargetRowOrSection,Verification,Status
+docs/sources.csv,Source,S-L01,docs/sources.csv,S-L01,법률 제21445호 시행 2026-09-11,확인
+docs/sources.csv,Source,S-L02,docs/sources.csv,S-L02,시행령 제36671호. C02가 영 제30조를 인용,확인
+docs/check-control-mapping.csv,Control,C02,docs/check-control-mapping.csv,C02,SourceID에 S-L02를 추가함,확인
+docs/check-control-mapping.csv,Check,A02,reports/JY-Audit-Workbook.xlsx,Checks G3,증적ID는 docs/sources.csv S-L01~S-L07,확인
+docs/18-final-report.md,Check,A02,docs/18-final-report.md,9절,보고서 A02 설명과 같은 출처 범위,확인
+reports/JY-Audit-Workbook.xlsx,Finding,F-01,reports/JY-Audit-Workbook.xlsx,Findings F-01,대상 T02 #52020 내부ID 미확인. 현재 6점 계획. 잔여 미확인,확인
+docs/ticket-inventory.csv,Finding,T02-52003,docs/ticket-inventory.csv,T02,id 3 #52003은 S04 정상업무. F-01과 별도,확인
+reports/JY-Audit-Workbook.xlsx,Finding,F-02a,reports/JY-Audit-Workbook.xlsx,Findings F-02a,현재 6점 계획. 잔여 점수 없음,확인
+reports/JY-Audit-Workbook.xlsx,Finding,F-02b,reports/JY-Audit-Workbook.xlsx,Findings F-02b,현재 6점 계획. 목록 숨김과 직접 차단을 구분,확인
+reports/JY-Audit-Workbook.xlsx,Finding,F-03,reports/JY-Audit-Workbook.xlsx,Findings D5,백업 잔존과 복구는 미확인. 현재와 잔여 9점 우선,확인
+reports/JY-Audit-Workbook.xlsx,Retest,R-03,reports/JY-Audit-Workbook.xlsx,Retest F5,T12와 사본은 남음. 백업 미파기로 단정하지 않음,확인
+reports/JY-Audit-Workbook.xlsx,Action,A-03,reports/JY-Audit-Workbook.xlsx,Actions A-03,새 목표일과 다음 검토일 2026-11-06. 즉시조치는 관측,확인
+docs/14-change-requests.md,Action,CR-04,docs/14-change-requests.md,CR-04,워크북 A-03과 같은 목표일,확인
+docs/16-incident-tabletop.md,Document,JY-INC-2026-01,reports/JY-Audit-Workbook.xlsx,Incident INC-01,같은 훈련. T0부터 T+60은 목표시간,확인
+docs/rights-request-simulation.md,Document,JY-RR-2026-01,docs/15-rights-request-simulation.md,RR-01,RR-01은 초안. 별도 요청이 아님,확인
+docs/15-outsourcing-checklist.md,Account,S03,reports/JY-Audit-Workbook.xlsx,Accounts S02 S03 S01,제한 권한은 S02와 S03. S01은 Admin. 가상 필요와 증적을 구분,확인
+docs/evidence-hashes.md,Evidence,DF-01,docs/data-flow.pdf,2026-10-22,d94e86cd325051ff98b8f4dcd9de31e4440fba6d1c48321e416e498998c51347,확인
+docs/evidence-hashes.md,Evidence,DF-01-old,docs/evidence-hashes.md,2026-10-14,이전 해시 d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f,이력
+evidence/sanitized/E-F01-B01.png,Evidence,E-F01-B01,evidence/sanitized/E-F01-B01.png,공개 가공본,원본 PNG는 private-evidence. 제한 접근,제한접근
+C:\JY-Lab\private-evidence,Evidence,원본,docs/evidence-hashes.md,해시 색인,제출본에 원본 없음. 공개본과 해시로 연결,제한접근
+docs/20-handover.md,Document,인계,docs/20-handover.md,4절,잔여 담당과 기한,확인
+GitHub,Issue,1,docs/20-handover.md,1절,이 환경에서 Issue를 열지 않음. 본문은 인계서에 있음,미확인
+Drive,Access,JY-Lab,docs/access-review.md,2026-10-20,공유 제한을 실행하지 않음,미수행

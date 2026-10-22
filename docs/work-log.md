@@ -182,3 +182,117 @@ jy_evidence_v2.py, test_jy_evidence_v2.py, jy_closeout.py, test_jy_closeout.py�
 ## 2026-10-16 10단계 도구 검사
 
 ruff를 0.12.12로 고정했다. 예전 도구 4개를 그 버전으로 포맷하고 list_zammad.py의 import를 나눴다. v2 파일은 그대로 뒀다. venv에서 v2 20건, closeout 10건, pytest 42건이 통과했다. 실제 토큰과 Zammad 수집은 하지 않았다. quality.yml은 collector와 tools를 함께 검사하도록 바꾼다.
+
+## 2026-10-16 11단계 사고 기록
+
+16장을 전체 다시 썼다. 2026-10-07의 JY-INC-2026-01 사실은 유지했다. T0부터 T+60은 목표시간으로 분리했다. 제34조 제1항만 시행 2026-09-11 조문 화면에서 옮겼다. 유출등 해당 여부와 신고 기한 숫자는 미확인이다. 발송과 신고는 없다. F02는 미흡이다.
+
+## 2026-10-16 11단계 권리 모의
+
+`docs/rights-request-simulation.md`를 새로 썼다. 요청ID는 JY-RR-2026-01이고 접수일은 2026-10-16이다. 유형은 삭제다. 2026-10-06 자료 보안은 참조만 했고, 본인확인과 회신을 소급하지 않았다. 처리기한 숫자는 비웠다. B04는 미확인이다. 메일은 보내지 않았다.
+
+## 2026-10-19 11단계 처리방침
+
+reports/policy에 Before, After, Tracked 문서와 After, Tracked PDF를 넣었다. 원문 시점은 미기재이고 Word 변환일은 2026-10-19이다. After에는 티켓 번호와 로컬 경로를 넣지 않았다. Tracked에는 초기 문장 삭제, 새 문안 삽입, 메모 5개가 있다. B02 판정은 바꾸지 않았다.
+
+## 2026-10-19 11단계 수탁 점검표
+
+reports/outsourcing/JY-Outsourcing-Checklist.xlsx를 넣었다. 시트는 문서정보, 수탁목록, 표본점검이다. V-01과 V-02의 계약, 권한, 파기, 교육을 채웠다. 계약 체결과 연간 감독 실적은 없다. D01은 미흡이다.
+
+## 2026-10-19 11단계 교육 1장
+
+reports/training/JY-Privacy-Training.docx와 JY-Privacy-Training.pdf를 넣었다. 원문은 docs/15-training-one-pager.md이다. 상담원, 유지보수, 관리자가 지킬 행동을 1쪽에 넣었다. 서명과 출석은 없다. D04는 미흡이다.
+
+## 2026-10-19 13단계 발표 7장
+
+reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조로 고쳤다. 스크린샷은 없다. 7장 메모에 예상 질문 6개가 있다. PR, 태그, Release는 없다. Checks 미흡은 유지한다.
+
+## 2026-10-19 14단계 번호 대조
+
+기준 번호는 T02=3/52003, T11 시험본=29/52028, T12=14/52014, T15=17/52017이다. #52020, #52029, #52032, #52013, #52002는 복제·미리보기라 합치지 않았다. R-03은 미흡, A-03은 예정이다. F-02a·F-02b 점수 9와 6은 다른 칸이라 고치지 않았다.
+
+## 2026-10-19 비밀 검사
+
+수집기 테스트 38개는 통과했다. Gitleaks는 설치되어 있지 않아 실행하지 않았다. 토큰 값은 찾지 못했다. evidence/sanitized PNG 10개는 원래 추적 중인 정제 증적이다. 이번 단계의 PDF, DOCX, XLSX, PPTX를 직접 열었고 토큰, 암호, 원본 증적은 없었다.
+
+## 2026-10-19 list_zammad URL 제한
+
+- `tools/list_zammad.py`가 `http://127.0.0.1:8080`과 `http://localhost:8080`만 허용하도록 바꿨다.
+- 사용자 정보가 들어간 URL, 다른 포트, HTTPS, 쿼리, 프래그먼트는 거부한다.
+- 요청은 프록시를 쓰지 않고 리다이렉트를 따라가지 않는다.
+- `tools/test_list_zammad.py`를 추가했다.
+- `py -3 -m unittest discover -s tools -p "test_*.py" -v` 결과 42개 통과.
+- Zammad 조회 스크립트는 실행하지 않았다.
+
+## 2026-10-19 Workbook E02와 Incident
+
+- Checks E02 증적ID는 `E-F03-B01`이다. 판정 `적합`과 관측 결과는 바꾸지 않았다.
+- D04, E01, E03, F02는 `미흡`, E04는 `미확인`으로 그대로다.
+- Incident 시트를 추가했다. INC-01 네 행이다.
+- 백업 `reports/JY-Audit-Workbook.before-final-remediation.xlsx`는 Git에 넣지 않는다.
+
+## 2026-10-19 Checks A02 출처 범위
+
+- Checks A02 관측결과와 한계에 법·시행령·고시·ISMS-P·ISO·KISA 범위를 구분했다.
+- 증적ID를 S-L01~S-L07로 바꿨다.
+- 판정 적합은 유지했다. 다른 점검 행과 판정 집계는 바꾸지 않았다.
+
+## 2026-10-19 권리 요청 모의 기록
+
+- `docs/15-rights-request-simulation.md`의 RR-01은 기존 모의 기록이다. 실제 이메일은 보내지 않았다.
+- `docs/17-remediation-log.md` 문서 보완 표에 이 기록을 추가했다.
+- Checks B04는 `미확인`으로 유지했다. 예정 표의 B04 `미실시`도 유지했다.
+
+## 2026-10-19 환경 버전
+
+- Windows 11 Home 25H2, OS 빌드 26200.9711과 WSL 2 상태를 기록했다.
+- Git, Python, Docker Engine, Compose, Zammad compose commit은 2026-10-08 표와 같았다.
+- Docker Desktop이 중지되어 이미지 이름은 오늘 다시 확인하지 못했다.
+- 메일 주소는 기록하지 않았다.
+
+## 2026-10-19 PROJECT_STATE
+
+- 현재 브랜치를 `docs/closeout-deliverables-02`, 마지막 커밋을 `4f0814a`로 적었다.
+- main `35b7b85`는 2026-10-14 기록으로 남겼다. 머지와 `v1.0-final` 태그는 완료로 적지 않았다.
+- Checks는 D03 `미흡`, B04·E04 `미확인`으로 적었다.
+- 2026-10-06 메모는 현재 지시가 아니라는 표시를 달아 남겼다.
+
+## 2026-10-19 상태 문장과 발표 7장
+
+- 최종보고서, 마무리 검토, 자기재검토, 시작 안내, 인수인계에 현재 브랜치 `docs/closeout-deliverables-02`를 적었다.
+- main `35b7b85`의 태그 `v1.0-final`과, 아직 머지하지 않은 보완 브랜치를 구분했다.
+- 발표 7장 원고와 `reports/JY-Briefing.pptx`를 다시 만들었다. 슬라이드 7장.
+- 2026-10-06과 2026-10-07 메모는 남겼다. Checks 판정은 바꾸지 않았다.
+
+## 2026-10-19 최종보고서 24절
+
+- `docs/18-final-report.md`를 24절로 늘렸다.
+- E02 증적ID `E-F03-B01`, 워크북 기본 11시트와 Incident, A02 출처 범위를 반영했다.
+- 이 보완 브랜치의 PR, CI, Drive, main 머지는 완료로 적지 않았다.
+- 해시 원문과 2026-10-19 이미지 재확인은 이 본문에 만들지 않았다.
+
+## 2026-10-20 3-2 잔여 기한
+
+- 브랜치 `docs/closeout-deliverables-02`, 로컬 커밋 `ae67b9c`.
+- A-03 근본조치의 새 목표일과 다음 검토일은 2026-11-06이다. 모의 결정일은 2026-10-20이고 실제 운영 승인은 없다.
+- 승인 역할은 S02, 실행 역할은 S01이다.
+- GitHub Issue #1은 이 PC에서 아직 열지 않았다.
+- 워크북과 보고서 docx, pdf는 수정본이며 아직 커밋하지 않았다.
+
+## 2026-10-22 품질 검사
+
+- 브랜치 `docs/closeout-deliverables-02`, 10:54 KST의 HEAD `d78535e`. 오늘 수정은 그 커밋 밖이다.
+- Python 3.13.14, ruff 0.12.12. unittest v2 20건 1.006초, closeout 10건 21.758초, pytest 46건 23.62초.
+- ruff check는 통과. format --check는 두 파일을 포맷한 뒤 11:31 KST에 18 files already formatted.
+- 흐름도 PDF는 68918바이트, SHA256 `d94e86cd325051ff98b8f4dcd9de31e4440fba6d1c48321e416e498998c51347`. 이전 `d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f`는 이력.
+- 2026-10-22 11:36 KST gitleaks 8.28.0. dir 22.65MB 5.16초, git 79커밋 10.2초. 둘 다 no leaks found. `.gitignore`에 `private-evidence/`, `zammad-runtime/`, `backups/`를 추가했다.
+- Office 재확인, 5분 발표, closeout check, 커밋, 태그, Release는 하지 않았다.
+
+## 2026-10-22 보고서 재생성
+- 14:44 KST에 `tools\build_final_report.py`를 실행했다. 19쪽, docx 970649바이트, pdf 1144389바이트.
+- 10절에 사본 관측과 백업 미확인을 넣었다. 24절 커밋 `949a0bd`는 유지했다.
+
+## 2026-10-22 제출 목록 커밋
+
+- `a03efa5`, `f5566d3`, `af57050`, `712e883`.
+- closeout check 133개 통과. 작업 트리는 깨끗하다.

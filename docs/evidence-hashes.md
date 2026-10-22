@@ -71,3 +71,11 @@
 ## 2026-10-15 계정 active 요약
 
 원본 users JSON은 공개하지 않는다. Accounts 시트의 이메일과 대조해 직원ID와 active만 evidence/sanitized/users-active.csv에 남겼다. S05만 true에서 false로 바뀌었다. SHA256은 5680e5263c36d398ead884fb6810be17781ce622346fcc62d40126c0ec72c783이다.
+
+## 2026-10-22 흐름도 문장 정정
+
+`docs/data-flow.pdf`의 사본 문장을 고친 뒤 다시 해시했다. 재시험은 아니다. 이전 해시는 이력으로 남긴다.
+
+| 경로 | SHA256 | 이전 |
+| --- | --- | --- |
+| docs/data-flow.pdf | d94e86cd325051ff98b8f4dcd9de31e4440fba6d1c48321e416e498998c51347 | d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f |

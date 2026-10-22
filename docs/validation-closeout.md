@@ -30,3 +30,27 @@ ruff 0.17.0은 collector와 tools에서 19건을 실패로 표시했다. 그중 
 ## 하지 않은 실행
 
 Zammad 수집, API 토큰 입력, Docker 재시작, 이 브랜치의 GitHub Actions는 하지 않았다. `quality.yml` 수정 후의 PR 검사는 푸시 뒤에 확인한다.
+
+## 2026-10-22 이 PC
+
+브랜치 `docs/closeout-deliverables-02`. 2026-10-22 10:54 KST에 확인한 HEAD는 `d78535e`다. 아래 검사는 그 커밋 이후의 작업 폴더에서 실행했다. 새 커밋 SHA는 아직 없다.
+
+환경은 Python 3.13.14, ruff 0.12.12다. pytest 버전은 이 실행에서 출력하지 않았다.
+
+| 명령 | 결과 |
+| --- | --- |
+| `.\.venv\Scripts\python.exe -m ruff format` 지정 6개 파일 | 6 files reformatted |
+| `.\.venv\Scripts\python.exe -m ruff check collector tools` | All checks passed |
+| `.\.venv\Scripts\python.exe -m ruff format --check collector tools` 첫 실행 | `collector\tests\test_evidence_register.py`, `tools\build_final_report.py`를 다시 포맷해야 함. 16 files already formatted |
+| `.\.venv\Scripts\python.exe -m unittest discover -s tools -p test_jy_evidence_v2.py -v` | Ran 20 tests in 1.006s, OK |
+| `.\.venv\Scripts\python.exe -m unittest discover -s tools -p test_jy_closeout.py -v` | Ran 10 tests in 21.758s, OK |
+| `.\.venv\Scripts\python.exe -m pytest -q` | 46 passed in 23.62s |
+| `.\.venv\Scripts\python.exe -m ruff format` 남은 2개 파일 | 2 files reformatted. 2026-10-22 11:31 KST |
+| `.\.venv\Scripts\python.exe -m ruff check collector tools` 다시 실행 | All checks passed |
+| `.\.venv\Scripts\python.exe -m ruff format --check collector tools` 다시 실행 | 18 files already formatted |
+
+`tools\build_briefing.py`의 slideMaster, notesMaster Relationship 두 줄에서 불필요한 f 접두사를 뺐다. 검사 출력에 F541은 없다. 2026-10-22 11:36 KST에 이 PC에서 gitleaks 8.28.0을 실행했다. 경로 `C:\JY-Lab\bin\gitleaks\gitleaks.exe`. ZIP SHA256 `da6458e8864af553807de1c46a7a8eac0880bd6b99ba56288e87e86a45af884f`. `dir . --redact`는 22.65MB, 5.16초, no leaks found. `git . --redact`는 79개 커밋, 546.62KB, 10.2초, no leaks found. `.gitignore`에 `private-evidence/`, `zammad-runtime/`, `backups/`를 이 시각에 추가했다. Office를 다시 열기, 5분 발표, `tools\jy_closeout.py check`, 커밋, PR, 태그, Release는 이 절에서 하지 않았다.
+
+## 2026-10-22 제출 목록 검사
+
+브랜치 `docs/closeout-deliverables-02`. 생성기 커밋 `a03efa5`, 문서 커밋 `f5566d3`, 산출물 커밋 `af57050`, 목록 수정 커밋 `712e883`. `tools\jy_closeout.py check`는 `712e883`에서 133개 파일과 일반 로컬 링크를 확인했다. 푸시, PR, 태그, Release는 아직 하지 않았다.

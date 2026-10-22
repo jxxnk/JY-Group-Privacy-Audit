@@ -50,3 +50,7 @@ evidence/after/*
 reports/generated/
 *.tmp
 *.log
+private-evidence/
+zammad-runtime/
+backups/
+~$*
