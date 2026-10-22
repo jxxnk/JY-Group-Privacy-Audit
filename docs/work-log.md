@@ -278,3 +278,16 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 - 승인 역할은 S02, 실행 역할은 S01이다.
 - GitHub Issue #1은 이 PC에서 아직 열지 않았다.
 - 워크북과 보고서 docx, pdf는 수정본이며 아직 커밋하지 않았다.
+
+## 2026-10-22 품질 검사
+
+- 브랜치 `docs/closeout-deliverables-02`, 10:54 KST의 HEAD `d78535e`. 오늘 수정은 그 커밋 밖이다.
+- Python 3.13.14, ruff 0.12.12. unittest v2 20건 1.006초, closeout 10건 21.758초, pytest 46건 23.62초.
+- ruff check는 통과. format --check는 두 파일을 포맷한 뒤 11:31 KST에 18 files already formatted.
+- 흐름도 PDF는 68918바이트, SHA256 `d94e86cd325051ff98b8f4dcd9de31e4440fba6d1c48321e416e498998c51347`. 이전 `d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f`는 이력.
+- 2026-10-22 11:36 KST gitleaks 8.28.0. dir 22.65MB 5.16초, git 79커밋 10.2초. 둘 다 no leaks found. `.gitignore`에 `private-evidence/`, `zammad-runtime/`, `backups/`를 추가했다.
+- Office 재확인, 5분 발표, closeout check, 커밋, 태그, Release는 하지 않았다.
+
+## 2026-10-22 보고서 재생성
+- 14:44 KST에 `tools\build_final_report.py`를 실행했다. 19쪽, docx 970649바이트, pdf 1144389바이트.
+- 10절에 사본 관측과 백업 미확인을 넣었다. 24절 커밋 `949a0bd`는 유지했다.
