@@ -30,7 +30,7 @@ MUTED = "5C6B73"
 LINE = "D5DEE3"
 PAPER = "F4F7F8"
 WHITE = "FFFFFF"
-WHEN = "2026-10-19T00:20:00Z"
+WHEN = "2026-10-20T09:00:00Z"
 AUTHOR = "수행자"
 
 ORIGINAL_TITLE = "가상 고객 제공자료 / 초기 상태 / 실제 회사 문서 아님"
@@ -42,15 +42,21 @@ ORIGINAL_BODY = (
 
 
 def esc(text: str) -> str:
-    return escape(text, {"\"": "&quot;"})
+    return escape(text, {'"': "&quot;"})
 
 
 def t_el(text: str, tag: str = "t") -> str:
     space = ' xml:space="preserve"' if text[:1].isspace() or text[-1:].isspace() else ""
-    return f'<w:{tag}{space}>{esc(text)}</w:{tag}>'
+    return f"<w:{tag}{space}>{esc(text)}</w:{tag}>"
 
 
-def rpr(size: int, bold: bool = False, color: str = NAVY, italic: bool = False, strike: bool = False) -> str:
+def rpr(
+    size: int,
+    bold: bool = False,
+    color: str = NAVY,
+    italic: bool = False,
+    strike: bool = False,
+) -> str:
     b = "<w:b/>" if bold else ""
     i = "<w:i/>" if italic else ""
     s = "<w:strike/>" if strike else ""
@@ -69,11 +75,17 @@ def run(text: str, size: int = 22, bold: bool = False, color: str = "243038") ->
     return f"<w:r>{rpr(size, bold, color)}{t_el(text)}</w:r>"
 
 
-def ppr(style: str | None, before: int = 0, after: int = 120, outline: int | None = None, border: bool = False) -> str:
+def ppr(
+    style: str | None,
+    before: int = 0,
+    after: int = 120,
+    outline: int | None = None,
+    border: bool = False,
+) -> str:
     style_xml = f'<w:pStyle w:val="{style}"/>' if style else ""
     outline_xml = f'<w:outlineLvl w:val="{outline}"/>' if outline is not None else ""
     border_xml = (
-        "<w:pBdr><w:bottom w:val=\"single\" w:sz=\"12\" w:space=\"1\" w:color=\"1B3A4B\"/></w:pBdr>"
+        '<w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="1B3A4B"/></w:pBdr>'
         if border
         else ""
     )
@@ -88,7 +100,17 @@ def ppr(style: str | None, before: int = 0, after: int = 120, outline: int | Non
     )
 
 
-def paragraph(text: str, style: str | None = None, size: int = 22, bold: bool = False, color: str = "243038", before: int = 0, after: int = 120, outline: int | None = None, border: bool = False) -> str:
+def paragraph(
+    text: str,
+    style: str | None = None,
+    size: int = 22,
+    bold: bool = False,
+    color: str = "243038",
+    before: int = 0,
+    after: int = 120,
+    outline: int | None = None,
+    border: bool = False,
+) -> str:
     return f"<w:p>{ppr(style, before, after, outline, border)}{run(text, size, bold, color)}</w:p>"
 
 
@@ -96,7 +118,15 @@ def shade(color: str) -> str:
     return f'<w:shd w:val="clear" w:color="auto" w:fill="{color}"/>'
 
 
-def cell(text: str, width: int, fill: str | None, bold: bool, color: str, size: int = 20, span: int | None = None) -> str:
+def cell(
+    text: str,
+    width: int,
+    fill: str | None,
+    bold: bool,
+    color: str,
+    size: int = 20,
+    span: int | None = None,
+) -> str:
     span_xml = f'<w:gridSpan w:val="{span}"/>' if span else ""
     fill_xml = shade(fill) if fill else ""
     return (
@@ -164,8 +194,17 @@ def callout(text: str) -> str:
 
 
 def styles_xml() -> str:
-    def style(style_id: str, name: str, size: int, bold: bool, color: str, outline: int | None = None) -> str:
-        outline_xml = f"<w:outlineLvl w:val=\"{outline}\"/>" if outline is not None else ""
+    def style(
+        style_id: str,
+        name: str,
+        size: int,
+        bold: bool,
+        color: str,
+        outline: int | None = None,
+    ) -> str:
+        outline_xml = (
+            f'<w:outlineLvl w:val="{outline}"/>' if outline is not None else ""
+        )
         b = "<w:b/>" if bold else ""
         return (
             f'<w:style w:type="paragraph" w:styleId="{style_id}">'
@@ -175,7 +214,7 @@ def styles_xml() -> str:
             "</w:pPr>"
             "<w:rPr>"
             '<w:rFonts w:ascii="Malgun Gothic" w:hAnsi="Malgun Gothic" w:eastAsia="Malgun Gothic" w:cs="Malgun Gothic"/>'
-            f"{b}<w:color w:val=\"{color}\"/>"
+            f'{b}<w:color w:val="{color}"/>'
             f'<w:sz w:val="{size}"/><w:szCs w:val="{size}"/>'
             "</w:rPr></w:style>"
         )
@@ -194,7 +233,11 @@ def styles_xml() -> str:
 
 
 def settings_xml(track: bool) -> str:
-    track_xml = '<w:trackRevisions/><w:revisionView w:markup="1" w:comments="1" w:insDel="1"/>' if track else ""
+    track_xml = (
+        '<w:trackRevisions/><w:revisionView w:markup="1" w:comments="1" w:insDel="1"/>'
+        if track
+        else ""
+    )
     return (
         f'<w:settings xmlns:w="{W}">'
         f"{track_xml}"
@@ -234,7 +277,7 @@ def footer_xml(label: str) -> str:
         '<w:tblGrid><w:gridCol w:w="7600"/><w:gridCol w:w="2266"/></w:tblGrid>'
         "<w:tr>"
         f'<w:tc><w:tcPr><w:tcW w:w="7600" w:type="dxa"/></w:tcPr><w:p>{ppr(None, 60, 0)}{run(label, 16, False, MUTED)}</w:p></w:tc>'
-        "<w:tc><w:tcPr><w:tcW w:w=\"2266\" w:type=\"dxa\"/></w:tcPr>"
+        '<w:tc><w:tcPr><w:tcW w:w="2266" w:type="dxa"/></w:tcPr>'
         f"<w:p>{ppr(None, 60, 0)}"
         f"{run('페이지 ', 16, False, MUTED)}"
         '<w:r><w:rPr><w:rFonts w:ascii="Malgun Gothic" w:hAnsi="Malgun Gothic" w:eastAsia="Malgun Gothic"/>'
@@ -330,7 +373,16 @@ def document_rels(comments: bool) -> str:
     )
 
 
-def write_docx(path: Path, title: str, header_left: str, header_right: str, footer: str, body: str, track: bool = False, comments: str | None = None) -> None:
+def write_docx(
+    path: Path,
+    title: str,
+    header_left: str,
+    header_right: str,
+    footer: str,
+    body: str,
+    track: bool = False,
+    comments: str | None = None,
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("[Content_Types].xml", content_types(comments is not None))
@@ -366,7 +418,9 @@ def before_body() -> str:
     )
 
 
-def after_sections() -> list[tuple[str, list[str], list[list[str]] | None, list[int] | None]]:
+def after_sections() -> list[
+    tuple[str, list[str], list[list[str]] | None, list[int] | None]
+]:
     return [
         (
             "1. 처리 목적과 항목",
@@ -382,7 +436,7 @@ def after_sections() -> list[tuple[str, list[str], list[list[str]] | None, list[
             [
                 "상담이 끝나면 지체 없이 파기한다.",
                 "법령에 보관 의무가 있는 경우에만 그 기간 동안 보관한다. 기간 숫자는 해당 조문을 확인한 뒤 적는다. 현재 이 칸은 비어 있다.",
-                "화면의 삭제만으로 파기가 끝났다고 보지 않는다. 다른 기록, 첨부, 내려받은 사본, 백업을 따로 확인한다.",
+                "화면의 삭제만으로 파기가 끝났다고 보지 않는다. 다른 기록, 첨부, 내려받은 사본을 따로 확인한다. 백업의 잔존과 복구는 확인하지 않았다.",
             ],
             None,
             None,
@@ -393,8 +447,18 @@ def after_sections() -> list[tuple[str, list[str], list[list[str]] | None, list[
             [
                 ["구분", "상대", "업무", "범위"],
                 ["위탁", "JY Service", "상담 수행", "목적 결정은 JY Retail"],
-                ["위탁", "JY Vendor", "시스템 유지보수", "필요할 때만 권한을 준다. 제한상담을 상시로 보지 않는다"],
-                ["제3자 제공", "해당 없음", "", "그룹사 이름만으로 제공 근거가 되지 않는다"],
+                [
+                    "위탁",
+                    "JY Vendor",
+                    "시스템 유지보수",
+                    "필요할 때만 권한을 준다. 제한상담을 상시로 보지 않는다",
+                ],
+                [
+                    "제3자 제공",
+                    "해당 없음",
+                    "",
+                    "그룹사 이름만으로 제공 근거가 되지 않는다",
+                ],
             ],
             [1600, 2000, 2400, 3866],
         ),
@@ -403,7 +467,8 @@ def after_sections() -> list[tuple[str, list[str], list[list[str]] | None, list[
             [
                 "열람, 정정, 삭제, 처리정지를 받는다.",
                 "접수 창구는 가상 주소 privacy@jy.example.test 이고, 역할은 보호 담당이다. 실행 역할은 시스템 관리자다.",
-                "순서는 접수, 본인확인, 승인, 실행, 회신이다.",
+                "순서는 접수, 본인확인, 승인, 실행, 회신이다. 정정 또는 삭제 요구를 받은 날부터 10일 이내에 조치 결과, 또는 삭제에 따르지 않은 사실과 이유, 이의제기 방법을 알린다. 근거는 개인정보 보호법 제36조와 시행령 제43조 제3항이다.",
+                "다른 법령에서 그 개인정보를 수집 대상으로 명시한 경우에는 삭제를 요구할 수 없다. 이 실습에서 메일을 보내거나 받지 않았다. 서명은 없다.",
                 "이 실습에서 메일을 보내거나 받지 않았다. 서명은 없다.",
                 "삭제를 실행할 때는 다른 기록, 사본, 백업을 범위에 넣는다. 시험용으로 남겨 둔 기록은 따로 관리한다.",
             ],
@@ -433,8 +498,8 @@ def after_sections() -> list[tuple[str, list[str], list[list[str]] | None, list[
         (
             "7. 사고 통지",
             [
-                "통지와 신고는 사실을 확인한 뒤 판단한다. 모든 사고의 기한을 72시간으로 적지 않는다.",
-                "이 실습에서 대외 통지와 신고는 하지 않았다.",
+                "유출등이 되었음을 알게 된 때 정보주체 통지의 기한은 시행령 제39조 제1항의 72시간이다. 1천 명 이상, 민감정보 또는 고유식별정보, 외부로부터의 불법적인 접근에 해당하는 유출등의 신고 기한은 시행령 제40조 제1항의 72시간이다.",
+                "모든 의심을 그 72시간 신고로 단순화하지 않는다. 이 실습에서 유출등 해당 여부는 확인하지 않았고, 대외 통지와 신고는 하지 않았다.",
             ],
             None,
             None,
@@ -448,15 +513,20 @@ def after_body() -> str:
             ["항목", "내용"],
             ["문서ID", "JY-Privacy-Policy-After"],
             ["문안 작성일", "2026-10-07"],
-            ["Word 정리일", "2026-10-19"],
+            ["Word 정리일", "2026-10-20"],
             ["상태", "가상 실습 초안. 대외 공시와 동의가 아니다."],
             ["대상", "로컬 상담 시스템 1식"],
-            ["적용", "JY Retail은 처리 목적을 정한다. JY Service는 상담을 수행한다. JY Vendor는 유지보수를 한다."],
+            [
+                "적용",
+                "JY Retail은 처리 목적을 정한다. JY Service는 상담을 수행한다. JY Vendor는 유지보수를 한다.",
+            ],
         ],
         [2200, 7666],
     )
     parts = [
-        paragraph("JY Group 개인정보 처리방침", "Heading1", 32, True, NAVY, 0, 160, 0, True),
+        paragraph(
+            "JY Group 개인정보 처리방침", "Heading1", 32, True, NAVY, 0, 160, 0, True
+        ),
         meta,
         paragraph("", "Normal", 22, False, "243038", 60, 40),
         callout("이 초안을 만들었다는 이유로 초기 점검 판정을 바꾸지 않는다."),
@@ -475,6 +545,10 @@ def after_body() -> str:
                 ["초기 문안", "보유, 위탁, 권리 설명이 부족했다"],
                 ["2026-10-07", "이 초안을 작성했다"],
                 ["2026-10-19", "대외 문안에서 내부 번호와 로컬 경로를 뺐다"],
+                [
+                    "2026-10-20",
+                    "보유 기간 숫자는 비워 두었다. 권리 결과 통지는 10일이다. 사고 통지에는 제39조와 제40조의 72시간을 적었다",
+                ],
             ],
             [2200, 7666],
         )
@@ -482,7 +556,14 @@ def after_body() -> str:
     return "".join(parts)
 
 
-def rev_run(text: str, kind: str, rev_id: int, size: int = 22, bold: bool = False, color: str = "243038") -> tuple[str, int]:
+def rev_run(
+    text: str,
+    kind: str,
+    rev_id: int,
+    size: int = 22,
+    bold: bool = False,
+    color: str = "243038",
+) -> tuple[str, int]:
     tag = "ins" if kind == "ins" else "del"
     text_tag = "t" if kind == "ins" else "delText"
     strike = kind == "del"
@@ -507,11 +588,31 @@ def comment_ref(comment_id: int) -> str:
 def tracked_body() -> tuple[str, str]:
     rev = 1
     comments = [
-        (0, "2. 보유와 파기", "B02. 초기 문장의 보관 문구를 바꿨다. 기간 숫자는 비웠다. CT-F03. 법 제21조 제1항과 제2항."),
-        (1, "3. 위탁과 제3자 제공", "D01. 계약서와 연간 감독 실적은 없다. 수탁은 JY Service와 JY Vendor다."),
-        (2, "4. 정보주체의 권리", "B04는 미확인이다. 실제 메일은 없다. 모의 기록은 JY-RR-2026-01이다."),
-        (3, "5. 안전조치", "F-01과 F-02. 조치는 2026-10-06이다. 세션과 백업은 확인하지 않았다."),
-        (4, "7. 사고 통지", "F02는 미흡이다. 법 제34조. 통지와 신고는 하지 않았다."),
+        (
+            0,
+            "2. 보유와 파기",
+            "B02. 초기 문장의 보관 문구를 바꿨다. 기간 숫자는 비웠다. CT-F03. 법 제21조 제1항과 제2항.",
+        ),
+        (
+            1,
+            "3. 위탁과 제3자 제공",
+            "D01. 계약서와 연간 감독 실적은 없다. 수탁은 JY Service와 JY Vendor다.",
+        ),
+        (
+            2,
+            "4. 정보주체의 권리",
+            "B04는 미확인이다. 실제 메일은 없다. 결과 통지는 시행령 제43조 제3항의 10일이다. 모의 기록은 JY-RR-2026-01이다.",
+        ),
+        (
+            3,
+            "5. 안전조치",
+            "F-01과 F-02. 조치는 2026-10-06이다. 세션과 백업은 확인하지 않았다.",
+        ),
+        (
+            4,
+            "7. 사고 통지",
+            "F02는 미흡이다. 시행령 제39조 제1항과 제40조 제1항. 이 건의 유출등 해당은 미확인이다. 통지와 신고는 하지 않았다.",
+        ),
     ]
     by_title = {title: (cid, text) for cid, title, text in comments}
     parts = [
@@ -589,7 +690,9 @@ def tracked_body() -> tuple[str, str]:
     return "".join(parts), "".join(comment_xml)
 
 
-def revision_table(rows: list[list[str]], widths: list[int], header: bool = True) -> str:
+def revision_table(
+    rows: list[list[str]], widths: list[int], header: bool = True
+) -> str:
     grid = "".join(f'<w:gridCol w:w="{w}"/>' for w in widths)
     body = []
     for index, row in enumerate(rows):
@@ -602,7 +705,9 @@ def revision_table(rows: list[list[str]], widths: list[int], header: bool = True
             # value is already revision XML, or empty.
             inner = value if value else run("", 20, False, color)
             if is_header and value and "<w:color" in value:
-                inner = value.replace('w:color w:val="243038"', f'w:color w:val="{WHITE}"').replace("<w:rPr>", "<w:rPr><w:b/>", 1)
+                inner = value.replace(
+                    'w:color w:val="243038"', f'w:color w:val="{WHITE}"'
+                ).replace("<w:rPr>", "<w:rPr><w:b/>", 1)
             cells.append(
                 "<w:tc><w:tcPr>"
                 f'<w:tcW w:w="{widths[col]}" w:type="dxa"/>{fill_xml}'
@@ -626,13 +731,14 @@ def revision_table(rows: list[list[str]], widths: list[int], header: bool = True
     )
 
 
-def export_with_word(after_docx: Path, tracked_docx: Path, after_pdf: Path, tracked_pdf: Path) -> None:
+def export_with_word(
+    after_docx: Path, tracked_docx: Path, after_pdf: Path, tracked_pdf: Path
+) -> None:
     ps = r"""
 $ErrorActionPreference = 'Stop'
 $word = New-Object -ComObject Word.Application
 $word.Visible = $false
 $word.DisplayAlerts = 0
-$word.Options.PrintRevisions = $true
 function Export-One([string]$docx, [string]$pdf, [int]$item) {
   $doc = $word.Documents.Open($docx, $false, $true)
   $null = $doc.ExportAsFixedFormat($pdf, 17, $false, 0, 0, 1, 1, $item, $true, $true, 0, $true, $true, $false)
@@ -653,7 +759,16 @@ $word.Quit()
 def export_with_libreoffice(folder: Path) -> None:
     soffice = "soffice"
     subprocess.run(
-        [soffice, "--headless", "--convert-to", "pdf", "--outdir", str(folder), str(folder / "JY-Privacy-Policy-After.docx"), str(folder / "JY-Privacy-Policy-Tracked.docx")],
+        [
+            soffice,
+            "--headless",
+            "--convert-to",
+            "pdf",
+            "--outdir",
+            str(folder),
+            str(folder / "JY-Privacy-Policy-After.docx"),
+            str(folder / "JY-Privacy-Policy-Tracked.docx"),
+        ],
         check=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -663,7 +778,11 @@ def export_with_libreoffice(folder: Path) -> None:
 def plain_text(path: Path) -> str:
     with zipfile.ZipFile(path) as zf:
         xml = zf.read("word/document.xml").decode("utf-8")
-        comments = zf.read("word/comments.xml").decode("utf-8") if "word/comments.xml" in zf.namelist() else ""
+        comments = (
+            zf.read("word/comments.xml").decode("utf-8")
+            if "word/comments.xml" in zf.namelist()
+            else ""
+        )
     return xml + comments
 
 
@@ -712,7 +831,14 @@ def main() -> None:
         raise SystemExit("After 대외 문안에 내부 번호가 있다.")
     if "지체 없이 파기한다" not in after_text:
         raise SystemExit("After 파기 문장이 없다.")
-    for token in ("B04", "JY-RR-2026-01", "CT-F03", "F02", ORIGINAL_BODY, "지체 없이 파기한다"):
+    for token in (
+        "B04",
+        "JY-RR-2026-01",
+        "CT-F03",
+        "F02",
+        ORIGINAL_BODY,
+        "지체 없이 파기한다",
+    ):
         if token not in tracked_text:
             raise SystemExit(f"Tracked에 {token} 이 없다.")
 

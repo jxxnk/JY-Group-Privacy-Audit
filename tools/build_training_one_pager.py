@@ -52,7 +52,7 @@ def rpr(size: int, bold: bool = False, color: str = INK) -> str:
         "<w:rPr>"
         '<w:rFonts w:ascii="Malgun Gothic" w:hAnsi="Malgun Gothic" '
         'w:eastAsia="Malgun Gothic" w:cs="Malgun Gothic"/>'
-        f"{b}<w:color w:val=\"{color}\"/>"
+        f'{b}<w:color w:val="{color}"/>'
         f'<w:sz w:val="{size}"/><w:szCs w:val="{size}"/>'
         "</w:rPr>"
     )
@@ -76,7 +76,7 @@ def p(
         "<w:p>"
         "<w:pPr>"
         f'<w:spacing w:before="{before}" w:after="{after}" w:line="240" w:lineRule="auto"/>'
-        f"{jc}<w:ind w:left=\"0\" w:right=\"0\"/>"
+        f'{jc}<w:ind w:left="0" w:right="0"/>'
         "</w:pPr>"
         f"{run(text, size, bold, color)}"
         "</w:p>"
@@ -111,7 +111,10 @@ def cell(
 
 def borders() -> str:
     edge = f'<w:{{0}} w:val="single" w:sz="4" w:space="0" w:color="{LINE}"/>'
-    return "".join(edge.format(side) for side in ("top", "left", "bottom", "right", "insideH", "insideV"))
+    return "".join(
+        edge.format(side)
+        for side in ("top", "left", "bottom", "right", "insideH", "insideV")
+    )
 
 
 def table(rows: list[str], widths: list[int]) -> str:
@@ -140,36 +143,48 @@ def lines(items: list[str], size: int = 15) -> str:
 
 
 DONT = [
-    "제한상담 URL을 일반상담원과 외부 유지보수에 넘기지 않는다. F-02에서 S04와 S06이 T11을 열람했다.",
+    "계정과 비밀번호를 넘기지 않는다. 다른 사람 계정으로 로그인하지 않는다.",
+    "제한상담을 일반상담원과 외부 유지보수에 넘기지 않는다. 제한상담은 S03 Restricted full과 Accounts의 S02 Restricted, S01 Admin이다. 2026-10-06에 S04와 S06이 T11을 열람했다.",
     "종료된 계정으로 로그인하지 않는다. S05는 종료일 2026-09-14 이후에도 활성인 채로 T02를 열람했다.",
-    "다른 고객의 티켓을 내 조직에서 보지 않는다. 공유 조직은 아니오이다.",
-    "첨부 jy-doc02.txt 등을 PC에 남기면 계정 삭제와 권한 회수로 지워지지 않는다.",
-    "상담 본문을 외부 AI나 개인 메일에 붙여 넣지 않는다. 이 시스템은 AI에 연결되어 있지 않다.",
-    "docker compose down -v 로 실습 데이터를 지우지 않는다.",
-    "실제 개인정보위 신고 메일과 실제 고객 메일을 보내지 않는다.",
+    "다른 고객의 티켓을 내 조직에서 보지 않는다. 문의와 관계없는 개인정보, 주민등록번호, 민감정보를 적지 않는다.",
+    "첨부 사본은 계정 삭제와 권한 회수로 지워지지 않는다. 업무가 끝나면 돌려주거나 지운다. 외부 AI와 개인 메일에 넣지 않는다.",
+    "권리 요청과 사고 의심은 S02에게 전달한다. 개인정보위, 경찰, 고객에게 직접 연락하지 않는다.",
 ]
 
 DO = [
-    "티켓 주소는 http://127.0.0.1:8080 이다. T12 줌은 #ticket/zoom/14 이다. 52014를 주소에 넣으면 찾지 못한다.",
-    "권한 요청은 S02가 받고 S01이 실행한다.",
-    "삭제 요청은 접수, 본인확인, 실행, 회신 순이다. 버튼 한 번으로 참조 티켓, 사본, 백업까지 지워지지 않는다.",
-    "증적 PNG, JSON, 토큰은 C:\\JY-Lab\\private-evidence\\ 에만 둔다. Git에 올리지 않는다.",
+    "권리 요청 순서는 접수, 본인확인, 승인, 실행, 회신이다. 승인 단계를 빼지 않는다. 실행은 S01이다.",
+    "삭제 버튼 한 번으로 참조 티켓, 사본, 백업까지 지워지지 않는다.",
+    "S04는 JY-General만 남긴다. S06은 그룹을 비운다. 한시 권한이 있을 때만 연다.",
+    "의심을 바로 72시간 신고로 적지 않는다. 신고 여부는 S02가 16장 기준으로 판단한다.",
 ]
 
 ROLES = [
-    ("시스템 관리자", "S01  admin@jy.example.test", "계정 회수, 그룹, 공유 조직, 자료 보안"),
-    ("보호 담당", "S02  privacy@jy.example.test", "요청 승인, 방침과 예외대장, 파기 범위"),
-    ("상담 리더", "S03  lead@service.example.test", "Restricted full. 최소 인원만"),
-    ("일반 상담", "S04  agent@service.example.test", "General만. Restricted 금지"),
-    ("종료 계정", "S05  former@service.example.test", "Active=false. 로그인 시도 금지"),
-    ("유지보수", "S06  maint@vendor.example.test", "그룹 없음. 한시 권한이 있을 때만"),
+    ("시스템 관리자", "S01 admin@jy.example.test", "계정 회수, 그룹, 삭제 실행. Admin"),
+    (
+        "보호 담당",
+        "S02 privacy@jy.example.test",
+        "권리·사고 접수, 이수 취합. Restricted",
+    ),
+    (
+        "상담 리더",
+        "S03 lead@service.example.test",
+        "Restricted full. 일반상담에 넘기지 않음",
+    ),
+    ("일반 상담", "S04 agent@service.example.test", "General만. Restricted 금지"),
+    ("종료 계정", "S05 former@service.example.test", "Active=false. 로그인 시도 금지"),
+    ("유지보수", "S06 maint@vendor.example.test", "그룹 없음. 한시 권한이 있을 때만"),
 ]
 
 
 def role_rows() -> list[str]:
     widths = [1800, 4200, 4586]
     header = "".join(
-        cell(p(text, size=14, bold=True, color=WHITE, before=0, after=0), width, NAVY, align="center")
+        cell(
+            p(text, size=14, bold=True, color=WHITE, before=0, after=0),
+            width,
+            NAVY,
+            align="center",
+        )
         for text, width in zip(("역할", "계정", "기억할 일"), widths)
     )
     rows = [header]
@@ -178,9 +193,24 @@ def role_rows() -> list[str]:
         rows.append(
             "".join(
                 [
-                    cell(p(role, size=14, bold=True, before=0, after=0), widths[0], fill, align="center"),
-                    cell(p(account, size=14, before=0, after=0), widths[1], fill, align="center"),
-                    cell(p(memory, size=14, before=0, after=0), widths[2], fill, align="center"),
+                    cell(
+                        p(role, size=14, bold=True, before=0, after=0),
+                        widths[0],
+                        fill,
+                        align="center",
+                    ),
+                    cell(
+                        p(account, size=14, before=0, after=0),
+                        widths[1],
+                        fill,
+                        align="center",
+                    ),
+                    cell(
+                        p(memory, size=14, before=0, after=0),
+                        widths[2],
+                        fill,
+                        align="center",
+                    ),
                 ]
             )
         )
@@ -191,7 +221,12 @@ def record_row() -> str:
     widths = [1800, 2200, 2800, 3786]
     labels = ("일자", "역할", "이름(가상)", "확인")
     head = "".join(
-        cell(p(text, size=14, bold=True, color=WHITE, before=0, after=0), width, NAVY, align="center")
+        cell(
+            p(text, size=14, bold=True, color=WHITE, before=0, after=0),
+            width,
+            NAVY,
+            align="center",
+        )
         for text, width in zip(labels, widths)
     )
     blank = "".join(
@@ -199,7 +234,13 @@ def record_row() -> str:
         for width in widths
     )
     note = cell(
-        p("서명 없음. 장기 증빙 없음. 이 칸을 채워도 D04는 미흡이다.", size=14, color=MUTED, before=0, after=0),
+        p(
+            "서명 없음. 장기 증빙 없음. 이 칸을 채워도 D04는 미흡이다.",
+            size=14,
+            color=MUTED,
+            before=0,
+            after=0,
+        ),
         sum(widths),
         AMBER,
         span=4,
@@ -213,8 +254,25 @@ def body() -> str:
         [
             "".join(
                 [
-                    cell(p("하지 말 것", size=16, bold=True, color=WHITE, before=0, after=0), half[0], NAVY, align="center"),
-                    cell(p("할 것", size=16, bold=True, color=WHITE, before=0, after=0), half[1], NAVY, align="center"),
+                    cell(
+                        p(
+                            "하지 말 것",
+                            size=16,
+                            bold=True,
+                            color=WHITE,
+                            before=0,
+                            after=0,
+                        ),
+                        half[0],
+                        NAVY,
+                        align="center",
+                    ),
+                    cell(
+                        p("할 것", size=16, bold=True, color=WHITE, before=0, after=0),
+                        half[1],
+                        NAVY,
+                        align="center",
+                    ),
                 ]
             ),
             "".join(
@@ -228,9 +286,16 @@ def body() -> str:
     )
     return "".join(
         [
-            p("개인정보 취급 교육 1장", size=28, bold=True, color=NAVY, before=0, after=40),
             p(
-                "문서ID JY-Training-1P  ·  원문 2026-10-07  ·  형식 2026-10-19  ·  JY Service 상담원, JY Vendor 유지보수, JY Retail 관리자",
+                "개인정보 취급 교육 1장",
+                size=28,
+                bold=True,
+                color=NAVY,
+                before=0,
+                after=40,
+            ),
+            p(
+                "문서ID JY-Training-1P · 원문 2026-10-07 · 형식 2026-10-20 · JY Service 상담원, JY Vendor 유지보수, JY Retail 관리자",
                 size=14,
                 color=MUTED,
                 before=0,
@@ -255,8 +320,22 @@ def body() -> str:
             actions,
             p("역할", size=16, bold=True, color=NAVY, before=120, after=40),
             table(role_rows(), [1800, 4200, 4586]),
-            p("이수 기록. 양식만 둔다.", size=16, bold=True, color=NAVY, before=120, after=40),
+            p(
+                "이수 기록. 양식만 둔다.",
+                size=16,
+                bold=True,
+                color=NAVY,
+                before=120,
+                after=40,
+            ),
             record_row(),
+            p(
+                "부록. 운영 교육이 아니다. 주소는 http://127.0.0.1:8080 이다. T12 줌은 #ticket/zoom/14 이다. 52014를 주소에 넣으면 찾지 못한다. 증적과 토큰은 C:\\JY-Lab\\private-evidence\\ 에만 두고 Git에 올리지 않는다. docker compose down -v 로 실습 데이터를 지우지 않는다.",
+                size=12,
+                color=MUTED,
+                before=40,
+                after=0,
+            ),
         ]
     )
 
@@ -318,11 +397,11 @@ CORE = f'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   <dcterms:modified xsi:type="dcterms:W3CDTF">2026-10-19T00:40:00Z</dcterms:modified>
 </cp:coreProperties>'''
 
-APP = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+APP = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties">
   <Application>JY training one pager</Application>
   <Pages>1</Pages>
-</Properties>'''
+</Properties>"""
 
 
 def write_docx(path: Path) -> None:
@@ -332,7 +411,10 @@ def write_docx(path: Path) -> None:
         zf.writestr("_rels/.rels", RELS)
         zf.writestr("word/document.xml", document_xml())
         zf.writestr("word/styles.xml", STYLES)
-        zf.writestr("word/_rels/document.xml.rels", f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="{REL}"/>')
+        zf.writestr(
+            "word/_rels/document.xml.rels",
+            f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="{REL}"/>',
+        )
         zf.writestr("docProps/core.xml", CORE)
         zf.writestr("docProps/app.xml", APP)
 
@@ -395,7 +477,15 @@ Write-Output $pages
     if not soffice:
         return None
     subprocess.run(
-        [soffice, "--headless", "--convert-to", "pdf", "--outdir", str(pdf.parent), str(docx)],
+        [
+            soffice,
+            "--headless",
+            "--convert-to",
+            "pdf",
+            "--outdir",
+            str(pdf.parent),
+            str(docx),
+        ],
         check=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,

@@ -1,4 +1,5 @@
 """List local Zammad tickets/groups using GET requests only."""
+
 from __future__ import annotations
 
 import json

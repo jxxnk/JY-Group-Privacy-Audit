@@ -19,79 +19,205 @@ INFO = [
     ("문서ID", "JY-Outsourcing-Checklist"),
     ("원문", "docs/15-outsourcing-checklist.md"),
     ("원문 작성일", "2026-10-07"),
-    ("형식 파일 작성일", "2026-10-19"),
+    ("형식 파일 작성일", "2026-10-20"),
     ("판정", "Checks D01은 미흡이다. 이 파일이 그 칸을 바꾸지 않는다."),
     ("범위", "양식과 이번 실습 기입이다. 계약 체결과 연간 감독 실적이 아니다."),
     ("근거", "법 제26조. 항과 호는 이 표에서 새로 단정하지 않는다."),
-    ("종료 시", "계정 비활성, 그룹 회수, 내려받은 사본과 백업 검색. 화면 삭제만으로 수탁자 PC 사본은 지워지지 않는다."),
+    (
+        "종료 시",
+        "계정 비활성, 그룹 회수, 내려받은 사본과 백업 검색. 화면 삭제만으로 수탁자 PC 사본은 지워지지 않는다.",
+    ),
 ]
 
 VENDORS = [
-    ["수탁ID", "수탁자", "연락(가상)", "업무", "목적", "재위탁", "계약서", "개인정보 항목"],
-    ["V-01", "JY Service", "lead@service.example.test (S03)", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail", "없음", "없음", "이름, 이메일, 문의, 첨부"],
-    ["V-02", "JY Vendor", "maint@vendor.example.test (S06)", "시스템 유지보수", "필요할 때만 권한. 상담문 상시 열람 아님", "없음", "없음", "시스템 접속. 상담문 상시 열람 아님"],
+    [
+        "수탁ID",
+        "수탁자",
+        "연락(가상)",
+        "업무",
+        "목적",
+        "재위탁",
+        "계약서",
+        "개인정보 항목",
+    ],
+    [
+        "V-01",
+        "JY Service",
+        "lead@service.example.test (S03)",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "없음",
+        "제공 자료에서 미확인",
+        "이름, 이메일, 문의, 첨부",
+    ],
+    [
+        "V-02",
+        "JY Vendor",
+        "maint@vendor.example.test (S06)",
+        "시스템 유지보수",
+        "필요할 때만 권한. 상담문 상시 열람 아님",
+        "없음",
+        "제공 자료에서 미확인",
+        "시스템 접속. 상담문 상시 열람 아님",
+    ],
 ]
 
 CHECKS = [
-    ["수탁ID", "업무", "목적", "계약 검토항목", "요청자료", "확인방법", "결과", "미흡", "담당", "기한", "이행증적"],
     [
-        "V-01", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail",
-        "계약서 유무", "계약서", "문서 대조",
-        "계약서 없음", "계약 미체결. 연간 실적 아님", "S02", "미정", "없음",
+        "수탁ID",
+        "업무",
+        "목적",
+        "계약 검토항목",
+        "요청자료",
+        "확인방법",
+        "결과",
+        "미흡",
+        "담당",
+        "기한",
+        "이행증적",
     ],
     [
-        "V-01", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail",
-        "제한상담 접근", "S03 권한 화면", "2026-10-06 화면",
-        "Restricted full 유지", "없음. 설계상 필요", "S01", "2026-10-06", "Accounts S03",
+        "V-01",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "계약서 유무",
+        "계약서",
+        "문서 대조",
+        "제공 자료에서 계약 문서 미확인",
+        "계약 문서 미확인. 연간 실적 아님",
+        "S02",
+        "2026-11-06",
+        "없음",
     ],
     [
-        "V-01", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail",
-        "일반상담원 S04의 제한상담", "T11 열람 화면", "2026-10-06 시험과 재확인",
-        "초기 T11 id 29, #52028 열람. 조치 후 JY-General만. T11 권한 없음. T02 유지",
-        "초기 과다권한은 회수. 연간 감독은 아님", "S01", "2026-10-06", "E-F02-A01, E-F02-A02",
+        "V-01",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "제한상담 접근",
+        "S03 권한 화면",
+        "2026-10-06 화면",
+        "가상 업무상 상담 리더에게 Restricted가 필요하다. 실제 확인은 Accounts의 Restricted full 유지이다. 제한상담 화면 증적은 없다",
+        "최소 인원 운영 절차는 미완료",
+        "S01 실행, S02 기록",
+        "즉시조치 2026-10-06 완료. 근본 기한 2026-11-06",
+        "Accounts S03",
     ],
     [
-        "V-01", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail",
-        "권한 재확인", "F-02 기록", "2026-10-06 시험",
-        "권한 재확인만 수행", "연간 실적은 아님", "S01", "2026-10-06", "F-02",
+        "V-01",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "일반상담원 S04의 제한상담",
+        "T11 열람 화면",
+        "2026-10-06 시험과 재확인",
+        "조치 후 그룹은 JY-General만. T02(id 3, #52003) 열람은 유지. 후 T11의 대상과 순서는 미확인",
+        "정기 권한 점검 미실시",
+        "S01 실행, S02 기록",
+        "즉시조치 2026-10-06 완료. 정기 기한 2026-11-06",
+        "E-F02-A01, E-F02-A02",
     ],
     [
-        "V-01", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail",
-        "파기와 반납", "반납 기록", "문서 대조",
-        "미실시", "미흡", "S02", "미정", "없음",
+        "V-01",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "권한 재확인",
+        "F-02 기록",
+        "2026-10-06 시험",
+        "권한 재확인만 수행",
+        "연간 실적은 아님",
+        "S01",
+        "2026-10-06",
+        "F-02",
     ],
     [
-        "V-01", "상담 수행", "상품 문의 상담. 목적 결정은 JY Retail",
-        "교육", "교육 기록", "문서 대조",
-        "1장 배포 예정. 실적일 공란", "미실시", "S02", "미정", "없음",
+        "V-01",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "파기와 반납",
+        "반납 기록",
+        "문서 대조",
+        "미실시",
+        "별도 사본 확인 없음. D03 미흡",
+        "S02",
+        "2026-11-06",
+        "없음",
     ],
     [
-        "V-02", "시스템 유지보수", "필요할 때만 권한. 상담문 상시 열람 아님",
-        "계약서 유무", "계약서", "문서 대조",
-        "계약서 없음", "계약 미체결. 연간 실적 아님", "S02", "미정", "없음",
+        "V-01",
+        "상담 수행",
+        "상품 문의 상담. 목적 결정은 JY Retail",
+        "교육",
+        "교육 기록",
+        "문서 대조",
+        "1장 문서는 있음. 서명과 출석은 없음",
+        "D04 미흡",
+        "S02",
+        "2026-11-06",
+        "docs/15-training-one-pager.md",
     ],
     [
-        "V-02", "시스템 유지보수", "필요할 때만 권한. 상담문 상시 열람 아님",
-        "유지보수 S06의 제한상담", "그룹 맵", "2026-10-06 시험과 재확인",
-        "초기 T11 상시 열람. 조치 후 그룹 맵 없음",
-        "초기 과다권한은 회수. 연간 감독은 아님", "S01", "2026-10-06", "E-F02-B02, A-02a",
+        "V-02",
+        "시스템 유지보수",
+        "필요할 때만 권한. 상담문 상시 열람 아님",
+        "계약서 유무",
+        "계약서",
+        "문서 대조",
+        "제공 자료에서 계약 문서 미확인",
+        "계약 문서 미확인. 연간 실적 아님",
+        "S02",
+        "2026-11-06",
+        "없음",
     ],
     [
-        "V-02", "시스템 유지보수", "필요할 때만 권한. 상담문 상시 열람 아님",
-        "한시 권한 절차", "절차 문서", "문서 대조",
-        "문서 없음. 이번 실습에서 한시 부여를 실행하지 않음",
-        "미흡. 절차는 요청 S02, 승인 가상 Retail, 실행 S01", "S02", "미정", "없음",
+        "V-02",
+        "시스템 유지보수",
+        "필요할 때만 권한. 상담문 상시 열람 아님",
+        "유지보수 S06의 제한상담",
+        "그룹 맵",
+        "2026-10-06 시험과 재확인",
+        "그룹 맵은 비움. 차단 후 T11 시험은 미확인",
+        "한시 부여는 실행하지 않음. D02 미흡",
+        "S01 실행, S02 기록",
+        "즉시조치 2026-10-06 완료. 절차 기한 2026-11-06",
+        "E-F02-B02는 조치 전 증적. 조치 후 증적은 없음",
     ],
     [
-        "V-02", "시스템 유지보수", "필요할 때만 권한. 상담문 상시 열람 아님",
-        "파기와 반납", "반납 기록", "문서 대조",
+        "V-02",
+        "시스템 유지보수",
+        "필요할 때만 권한. 상담문 상시 열람 아님",
+        "한시 권한 절차",
+        "한시 권한 양식",
+        "문서 대조",
+        "양식은 4장에 있음. 운영 미실시",
+        "미흡. 요청 S02, 모의 승인 가상 Retail, 실행 S01. 이행증적 없음",
+        "S02",
+        "2026-11-06",
+        "없음",
+    ],
+    [
+        "V-02",
+        "시스템 유지보수",
+        "필요할 때만 권한. 상담문 상시 열람 아님",
+        "파기와 반납",
+        "반납 기록",
+        "문서 대조",
         "미실시. 화면 삭제만으로 수탁자 PC 사본은 지워지지 않음",
-        "미흡", "S02", "미정", "D03",
+        "미흡",
+        "S02",
+        "2026-11-06",
+        "D03",
     ],
     [
-        "V-02", "시스템 유지보수", "필요할 때만 권한. 상담문 상시 열람 아님",
-        "교육", "교육 기록", "문서 대조",
-        "1장 배포 예정. 실적일 공란", "미실시", "S02", "미정", "없음",
+        "V-02",
+        "시스템 유지보수",
+        "필요할 때만 권한. 상담문 상시 열람 아님",
+        "교육",
+        "교육 기록",
+        "문서 대조",
+        "1장 문서는 있음. 서명과 출석은 없음",
+        "D04 미흡",
+        "S02",
+        "2026-11-06",
+        "docs/15-training-one-pager.md",
     ],
 ]
 
@@ -125,13 +251,13 @@ def sheet(rows: list[list[str]], widths: list[int]) -> str:
     )
     return (
         f'<worksheet xmlns="{NS}">'
-        "<sheetViews><sheetView workbookViewId=\"0\">"
+        '<sheetViews><sheetView workbookViewId="0">'
         '<pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/>'
         "</sheetView></sheetViews>"
         f"<cols>{cols}</cols>"
         f"<sheetData>{''.join(body)}</sheetData>"
         f'<autoFilter ref="A1:{last_col}{last_row}"/>'
-        "<pageMargins left=\"0.5\" right=\"0.5\" top=\"0.6\" bottom=\"0.6\" header=\"0.3\" footer=\"0.3\"/>"
+        '<pageMargins left="0.5" right="0.5" top="0.6" bottom="0.6" header="0.3" footer="0.3"/>'
         '<pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="1"/>'
         "</worksheet>"
     )
@@ -182,7 +308,9 @@ def workbook() -> None:
     info = info_sheet()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(OUT, "w", compression=zipfile.ZIP_DEFLATED) as zf:
-        zf.writestr("[Content_Types].xml", '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        zf.writestr(
+            "[Content_Types].xml",
+            """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
   <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
   <Default Extension="xml" ContentType="application/xml"/>
@@ -191,34 +319,55 @@ def workbook() -> None:
   <Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>
   <Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>
   <Override PartName="/xl/worksheets/sheet3.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>
-</Types>''')
-        zf.writestr("_rels/.rels", '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+</Types>""",
+        )
+        zf.writestr(
+            "_rels/.rels",
+            """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
   <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>
-</Relationships>''')
-        zf.writestr("xl/workbook.xml", f'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+</Relationships>""",
+        )
+        zf.writestr(
+            "xl/workbook.xml",
+            f'''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <workbook xmlns="{NS}" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
   <sheets>
     <sheet name="문서정보" sheetId="1" r:id="rId1"/>
     <sheet name="수탁목록" sheetId="2" r:id="rId2"/>
     <sheet name="표본점검" sheetId="3" r:id="rId3"/>
   </sheets>
-</workbook>''')
-        zf.writestr("xl/_rels/workbook.xml.rels", '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+</workbook>''',
+        )
+        zf.writestr(
+            "xl/_rels/workbook.xml.rels",
+            """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
   <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>
   <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/>
   <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet3.xml"/>
   <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
-</Relationships>''')
+</Relationships>""",
+        )
         zf.writestr("xl/styles.xml", STYLES)
-        zf.writestr("xl/worksheets/sheet1.xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + info)
-        zf.writestr("xl/worksheets/sheet2.xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + vendors)
-        zf.writestr("xl/worksheets/sheet3.xml", '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + checks)
+        zf.writestr(
+            "xl/worksheets/sheet1.xml",
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + info,
+        )
+        zf.writestr(
+            "xl/worksheets/sheet2.xml",
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + vendors,
+        )
+        zf.writestr(
+            "xl/worksheets/sheet3.xml",
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' + checks,
+        )
     text = "\n".join("\t".join(row) for row in CHECKS)
     if "연간 감독 실적 완료" in text or "계약 체결 완료" in text:
         raise SystemExit("실적을 꾸몄다.")
-    if "D01" not in info or "미흡" not in "".join(cell for row in CHECKS for cell in row):
+    if "D01" not in info or "미흡" not in "".join(
+        cell for row in CHECKS for cell in row
+    ):
         raise SystemExit("판정 문구가 빠졌다.")
     print(f"{OUT.name}\t{OUT.stat().st_size}")
 

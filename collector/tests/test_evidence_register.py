@@ -26,6 +26,7 @@ def test_register_has_twenty_one_unique_hashes() -> None:
     assert len(set(first)) == 21
     assert set(later) - set(first) == {
         "d94f7cb9cf1191f79a34df5c13061239aa5fdb0f884ada71483c7743c69f023f",
+        "d94e86cd325051ff98b8f4dcd9de31e4440fba6d1c48321e416e498998c51347",
         "5680e5263c36d398ead884fb6810be17781ce622346fcc62d40126c0ec72c783",
     }
 
