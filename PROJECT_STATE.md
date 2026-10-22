@@ -1,12 +1,17 @@
 # PROJECT_STATE
 
-상태 갱신일: 2026-10-19
+상태 갱신일: 2026-10-22
 수행 위치: `C:\JY-Lab\JY-Group-Privacy-Audit`
 수행자: 김준영 (고객 역할과 컨설턴트 역할을 겸함. 실제 고객 인터뷰가 아님)
-현재 브랜치: `docs/closeout-deliverables-02`
-마지막 로컬 커밋: `ae67b9c`. 아직 푸시 전
-main: origin/main `56696f3`. 2026-10-16 풀 리퀘스트 #10. 이 보완 브랜치는 아직 main에 머지하지 않음
-태그: 이 PC에서 `v1.0-final.1`은 만들지 않음
+현재 작업 브랜치: `docs/project-state-15`. 이 파일의 상태 갱신을 기록하는 브랜치다.
+main: `28f8aac`. Merge pull request #11. 이전 main은 `56696f3`이고, 그 커밋은 2026-10-16 풀 리퀘스트 #10이다.
+태그: `v1.0-final`은 `35b7b85`에 그대로 둔다. 검수 후 태그 `v1.0-final.1`은 `28f8aac`에 있다.
+보완 PR: #11은 완료다. 그 커밋의 CI는 python-quality와 secret-scan이 통과했다. 이전 실습 PR #2도 완료된 상태다.
+Word, PDF, PPT: `reports/JY-Final-Report.docx`, `reports/JY-Final-Report.pdf`, `reports/JY-Briefing.pptx`가 있다.
+Workbook: 기본 11시트와 Incident가 있다. 시트 탭에는 FinalReview도 있어 시트는 13개다.
+Controls 확인 범위: `docs/control-notes.md`와 `docs/sources.csv`의 S-L01부터 S-L07이다.
+JSON-F01-DIFF와 E-D03-A01은 Evidence에 해시를 기입했다. 원본은 Git 밖에 있다.
+ENV 해시: ENV-01과 ENV-02는 공란이다. 원본은 Git 밖에 있다.
 결정: ADR-015. 본문은 `docs/DECISION_LOG.md`
 GitHub: https://github.com/jxxnk/JY-Group-Privacy-Audit.git
 Zammad 런타임: `C:\JY-Lab\zammad-runtime`
@@ -15,7 +20,7 @@ Zammad compose 커밋: `27944f87aed91420242dfa97038ff96555d7cbe7`
 원본 증적: `C:\JY-Lab\private-evidence\` (Git 제외)
 참고 PDF: `C:\JY-Lab\reference\`
 
-## 2026-10-19 현재
+## 2026-10-19 기록
 
 - Workbook은 기본 11시트에 `Incident`를 더한 상태다. 시트 탭에는 `FinalReview`도 있다.
 - Checks E02 증적ID는 `E-F03-B01`이다. 판정 `적합`은 유지했다.
@@ -23,7 +28,7 @@ Zammad compose 커밋: `27944f87aed91420242dfa97038ff96555d7cbe7`
 - `tools/list_zammad.py`는 `http://127.0.0.1:8080`과 `http://localhost:8080`만 허용한다. 프록시와 리다이렉트를 차단한다.
 - `docs/15-rights-request-simulation.md`에 RR-01 모의 기록이 있다. 실제 이메일은 보내지 않았다. Checks B04는 `미확인`이다.
 - 환경 버전은 `docs/environment.md`의 2026-10-19 관측이다. Windows 11 Home 25H2, OS 빌드 26200.9711. Zammad 이미지는 이날 다시 확인하지 못했다.
-- 수집기 `diff` 서브커맨드는 없다. `users-diff.json`은 `private-evidence/after`에만 있고 S05 active True→False만 기록되어 있다.
+- v1 `tools/jy_evidence.py`에는 `diff` 명령이 없다. `users-diff.json`은 `private-evidence/after`에만 있고 S05 active True→False만 기록되어 있다. 현재 수집기는 `tools/jy_evidence_v2.py`이며 명령은 `collect`, `diff`, `verify`다.
 
 ## Checks 요약 (2026-10-19, 덮어쓰지 말 것)
 
@@ -40,14 +45,13 @@ Zammad compose 커밋: `27944f87aed91420242dfa97038ff96555d7cbe7`
 - E04 백업 복구 실측
 - CR-04/A-03. T12 참조 파기와 사본·백업 검색
 - 실제 교육 서명, 실제 수탁 감독 실적, 실제 권리 이메일
-- 이 보완 브랜치의 Pull Request, main 머지, `v1.0-final` 태그, Release
 - 2026-10-19 Zammad 이미지 재확인. Docker Desktop 엔진이 중지되어 있었음
 
 ## 다음 세 가지 행동
 
-1. 이 파일을 저장하고 `docs/closeout-deliverables-02`에 커밋한다.
-2. 오래된 상태 문장(`feat/linux-evidence-collector`, `11시트`, PR과 태그를 나중으로 미루는 문장)을 현재 사실과 대조한다.
-3. Pull Request와 태그는 그 대조가 끝나기 전에 만들지 않는다.
+1. 이 파일을 저장하고 브랜치 `docs/project-state-15`에 커밋한다. 이 커밋은 패키지 커밋 `28f8aac`를 바꾸지 않는다.
+2. `docs/project-state-15`에서 `main`으로 보내는 풀 리퀘스트를 만든다. `main`에 직접 커밋하지 않는다.
+3. 태그 `v1.0-final`은 `35b7b85`에, `v1.0-final.1`은 `28f8aac`에 그대로 둔다. 이 기록에는 새 태그를 만들지 않는다.
 
 ## 금지사항
 
