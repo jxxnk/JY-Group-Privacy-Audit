@@ -291,3 +291,8 @@ reports/JY-Briefing.pptx를 넣었다. 원고 docs/18-slides.md를 7장 구조�
 ## 2026-10-22 보고서 재생성
 - 14:44 KST에 `tools\build_final_report.py`를 실행했다. 19쪽, docx 970649바이트, pdf 1144389바이트.
 - 10절에 사본 관측과 백업 미확인을 넣었다. 24절 커밋 `949a0bd`는 유지했다.
+
+## 2026-10-22 제출 목록 커밋
+
+- `a03efa5`, `f5566d3`, `af57050`, `712e883`.
+- closeout check 133개 통과. 작업 트리는 깨끗하다.

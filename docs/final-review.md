@@ -6,7 +6,7 @@
 
 | 번호 | 검사 | 파일·위치 | 결과 |
 | --- | --- | --- | --- |
-| 1 | 현재 브랜치 | `git branch --show-current`, `git rev-parse --short HEAD` | `docs/closeout-deliverables-02`, `d78535e`. 2026-10-22 10:54 KST의 기존 커밋. 오늘 저장한 인계서와 참조표는 이 커밋 밖. 업로드본의 main `35b7b85`와 태그 `v1.0-final`은 확인하지 않음 |
+| 1 | 현재 브랜치 | `git rev-parse --short HEAD` | 제출 목록 검사 커밋 `712e883`. 그 전 커밋은 `a03efa5`, `f5566d3`, `af57050`. 10:54 KST에 본 `d78535e`는 그 이전 커밋. 업로드본의 main `35b7b85`와 태그 `v1.0-final`은 이 커밋에서 다시 확인하지 않음 |
 | 2 | 범위 일치 | `docs/scope.md.txt`, 워크북 Scope, `docs/18-final-report.md` 5절 | 2026-10-22에 세 파일을 다시 대조하지 않음 |
 | 3 | 출처 판·날짜 | `docs/sources.csv`, `docs/control-notes.md` | 2026-10-22에 다시 열지 않음 |
 | 4 | 직원·티켓 | `docs/ticket-inventory.csv`, Accounts | 2026-10-22에 다시 세지 않음. 기존 구분인 T02 #52020과 #52003/id 3은 유지 |

@@ -50,3 +50,7 @@ Zammad 수집, API 토큰 입력, Docker 재시작, 이 브랜치의 GitHub Acti
 | `.\.venv\Scripts\python.exe -m ruff format --check collector tools` 다시 실행 | 18 files already formatted |
 
 `tools\build_briefing.py`의 slideMaster, notesMaster Relationship 두 줄에서 불필요한 f 접두사를 뺐다. 검사 출력에 F541은 없다. 2026-10-22 11:36 KST에 이 PC에서 gitleaks 8.28.0을 실행했다. 경로 `C:\JY-Lab\bin\gitleaks\gitleaks.exe`. ZIP SHA256 `da6458e8864af553807de1c46a7a8eac0880bd6b99ba56288e87e86a45af884f`. `dir . --redact`는 22.65MB, 5.16초, no leaks found. `git . --redact`는 79개 커밋, 546.62KB, 10.2초, no leaks found. `.gitignore`에 `private-evidence/`, `zammad-runtime/`, `backups/`를 이 시각에 추가했다. Office를 다시 열기, 5분 발표, `tools\jy_closeout.py check`, 커밋, PR, 태그, Release는 이 절에서 하지 않았다.
+
+## 2026-10-22 제출 목록 검사
+
+브랜치 `docs/closeout-deliverables-02`. 생성기 커밋 `a03efa5`, 문서 커밋 `f5566d3`, 산출물 커밋 `af57050`, 목록 수정 커밋 `712e883`. `tools\jy_closeout.py check`는 `712e883`에서 133개 파일과 일반 로컬 링크를 확인했다. 푸시, PR, 태그, Release는 아직 하지 않았다.
